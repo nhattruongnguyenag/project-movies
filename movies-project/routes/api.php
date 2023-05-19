@@ -1,19 +1,15 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\GenresController;
+use App\Http\Controllers\Admin\MovieController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+Route::post('genreses', [GenresController::class, "saveAPI"])->name("api-genreses");
+Route::put('genreses', [GenresController::class, "updateAPI"]);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('categories', [CategoryController::class, "saveAPI"])->name("api-categories");
+Route::put('categories', [CategoryController::class, "updateAPI"]);
+
+Route::post('movies', [MovieController::class, "saveAPI"])->name("api-movies");
+Route::put('movies', [MovieController::class, "updateAPI"]);

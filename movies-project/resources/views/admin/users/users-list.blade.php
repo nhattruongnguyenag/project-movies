@@ -40,9 +40,13 @@
                                                 <button class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                                 </button>
-
+                                                
                                                 <button class="btn btn-xs btn-danger">
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                </button>
+
+                                                <button class="btn btn-xs btn-warning">
+                                                    <i class="ace-icon fa fa-lock bigger-120"></i>
                                                 </button>
                                             </div>
                                         </td>

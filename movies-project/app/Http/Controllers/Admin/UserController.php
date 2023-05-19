@@ -10,7 +10,8 @@ class UserController extends Controller
     function listPage()
     {
         return view('admin.users.users-list', [
-            'active' => 'users-list'
+            'active' => 'users-list',
+            'formEditUri' => 'users-edit'
         ]);
     }
 

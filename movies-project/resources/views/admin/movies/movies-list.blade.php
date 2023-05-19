@@ -23,6 +23,7 @@
                                 </thead>
 
                                 <tbody>
+                                    @foreach ($movies as $movie)
                                     <tr>
                                         <td class="center">
                                             <label class="pos-rel">
@@ -30,17 +31,23 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </td>
-                                        <td class="center"><img width="150px"
-                                                src="https://fphim.tv/uploads/2020/07/10/b9126e7b01e05004fbcfb0531f7b3f13.jpg"
+                                        @php
+                                        $imageUrl = $movie->image != null ? $movie->image :
+                                        asset("admin/assets/img-default/default-movie.png")
+                                        @endphp
+                                        <td class="center" style="width: 250px"><img width="150px" src="{{$imageUrl}}"
                                                 alt="photo"></td>
-                                        <td class=" ">NỮ CHÚA RỪNG XANH</td>
-                                        <td class="center">Mỹ</td>
-                                        <td class="center">117 phút</td>
+                                        <td class=" ">{{$movie != null ? $movie->name : ''}}</td>
+                                        <td class="center">{{$movie != null ? $movie->country : ''}}</td>
+                                        <td class="center">{{$movie != null ? $movie->duration : ''}}</td>
                                         <td class="center">
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info">
+                                                @php
+                                                $editURI = 'admin/movies/' . $movie->id . '/edit';
+                                                @endphp
+                                                <a href="{{url($editURI)}}" class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
+                                                </a>
 
                                                 <button class="btn btn-xs btn-danger">
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
@@ -48,8 +55,13 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="center">
+                                {{ $movies->links() }}
+                            </div>
                         </div><!-- /.span -->
                     </div><!-- /.row -->
                     <div class="hr hr-18 dotted hr-double"></div>

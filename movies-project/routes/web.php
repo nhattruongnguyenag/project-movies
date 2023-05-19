@@ -24,17 +24,28 @@ Route::get('/', function () {
 
 // Admin routes 
 
-Route::get('/admin/movies-list', [MovieController::class, "listPage"])->name("movies-list");
-Route::get('/admin/movies-edit', [MovieController::class, "editPage"])->name("movies-edit");
+Route::controller(MovieController::class)->group(function () {
+    Route::get('/admin/movies', "listPage")->name("movies");
+    Route::get('/admin/movies/{id}/edit', "editPage");
+    Route::get('/admin/movies-edit', "editPage")->name("movies-edit");
+});
 
-Route::get('/admin/episodes-list', [EpisodeController::class, "listPage"])->name("episodes-list");
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/admin/categories', "listPage")->name("categories");
+    Route::get('admin/categories/{id}/edit', "editPage");
+    Route::get('/admin/categories/edit', "editPage")->name("categories-edit");
+});
+
+Route::controller(GenresController::class)->group(function () {
+    Route::get('/admin/genreses', [GenresController::class, "listPage"])->name("genreses");
+    Route::get('/admin/genreses/{id}/edit', [GenresController::class, "editPage"]);
+    Route::get('/admin/genreses/edit', [GenresController::class, "editPage"])->name("genreses-edit");
+});
+
+Route::get('/admin/episodes-list', [EpisodeController::class, "listPage"])->name("episodes");
 Route::get('/admin/episodes-edit', [EpisodeController::class, "editPage"])->name("episodes-edit");
 
-Route::get('/admin/categories-list', [CategoryController::class, "listPage"])->name("categories-list");
-Route::get('/admin/categories-edit', [CategoryController::class, "editPage"])->name("categories-edit");
 
-Route::get('/admin/genreses-list', [GenresController::class, "listPage"])->name("genreses-list");
-Route::get('/admin/genreses-edit', [GenresController::class, "editPage"])->name("genreses-edit");
 
-Route::get('/admin/users-list', [UserController::class, "listPage"])->name("users-list");
+Route::get('/admin/users-list', [UserController::class, "listPage"])->name("users");
 Route::get('/admin/users-edit', [UserController::class, "editPage"])->name("users-edit");

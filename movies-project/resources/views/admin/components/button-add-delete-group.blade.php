@@ -2,8 +2,8 @@
     <div class="pull-right tableTools-container">
         <div class="btn-group btn-overlap">
             <div class="ColVis btn-group" title="" data-original-title="Show/hide columns">
-                <a href="@isset($formEditUrl)
-                                                {{$formEditUrl}}
+                <a href="@isset($formEditUri)
+                                                {{route($formEditUri)}}
                                             @endisset"
                     class="ColVis_Button ColVis_MasterButton btn btn-white btn-info btn-bold">
                     <span><i class="glyphicon-plus"></i></span>
