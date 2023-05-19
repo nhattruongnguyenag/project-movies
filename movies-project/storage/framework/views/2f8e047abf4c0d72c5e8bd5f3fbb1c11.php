@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\ACER\OneDrive\Máy tính\project-movies\movies-project\resources\views/home.blade.php ENDPATH**/ ?>
