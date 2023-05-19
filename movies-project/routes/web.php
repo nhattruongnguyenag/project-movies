@@ -27,7 +27,7 @@ Route::get('/category', function () {
 });
 
 Route::get('/detail', function () {
-    return view('detailFilm');
+    return view('detail');
 });
 
 Route::get('/watch', function () {

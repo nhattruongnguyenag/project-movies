@@ -31,7 +31,7 @@
             </div>
             <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
                 
-                @include('modules.contentFilm')
+                @include('modules.detailFilm')
 
             </main>
             <aside id="sidebar" class="col-xs-12 col-sm-12 col-md-4"></aside>
