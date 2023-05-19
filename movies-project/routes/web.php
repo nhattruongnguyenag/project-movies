@@ -33,6 +33,14 @@ Route::get('/detail', function () {
 Route::get('/watch', function () {
     return view('watch');
 })->name('watch');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
 // Admin routes 
 
 Route::get('/admin/movies-list', [MovieController::class, "listPage"])->name("movies-list");
