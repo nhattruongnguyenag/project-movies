@@ -1,27 +1,37 @@
 <header id="header">
     <div class="container">
-        <div class="row" id="headwrap">
-            <div class="col-md-3 col-sm-6 slogan">
-                <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</p>
-                </a>
-            </div>
-            <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
-                <div class="header-nav">
-                    <div class="col-xs-12">
-                        
-                        @include('modules.search')
+       <div class="row" id="headwrap">
+          <div class="col-md-3 col-sm-6 slogan">
+             <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</p>
+             </a>
+          </div>
+          <div class="col-md-4 col-sm-6 halim-search-form hidden-xs">
+             <div class="header-nav">
+                <div class="col-xs-12">
+                   
+                    @include('modules.search')
 
-                        <ul class="ui-autocomplete ajax-results hidden"></ul>
-                    </div>
+                   <ul class="ui-autocomplete ajax-results hidden"></ul>
                 </div>
-            </div>
-            <div class="col-md-4 hidden-xs">
-                <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span
-                        class="count">0</span></div>
-                <div id="bookmark-list" class="hidden bookmark-list-on-pc">
-                    <ul style="margin: 0;"></ul>
+             </div>
+          </div>
+          <div class="col-md-5 hidden-xs">
+             <div id="get-bookmark" class="box-shadow"><i class="bi bi-bell-fill"></i><span> Thông báo</span><span class="count">0</span></div>
+             <div class="wrapper_menu_utilities ">
+                <div class="dropdown">
+                   <button class="btn dropdown-toggle menu_utilities" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                   <i class="bi bi-filter"></i> &nbsp; Tiện ích người dùng
+                   </button>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="#">Phim vừa xem</a></li>
+                      <li><a class="dropdown-item" href="#">Phim đã thích</a></li>
+                   </ul>
                 </div>
-            </div>
-        </div>
+             </div>
+             <div class="user_area">
+                <a href="#"> <i class="bi bi-person-fill"></i></a>
+             </div>
+          </div>
+       </div>
     </div>
-</header>
+ </header>

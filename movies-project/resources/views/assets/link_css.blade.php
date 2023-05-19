@@ -29,7 +29,8 @@
 <meta property="og:image:height" content="55" />
 
 <link rel='dns-prefetch' href='//s.w.org' />
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+{{-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' id='bootstrap-css' href='{{ URL::asset('css/boostrap.min.css') }}' media='all' />
 <link rel='stylesheet' id='style-css' href='{{ URL::asset('css/style.css') }}' media='all' />
 <link rel='stylesheet' id='wp-block-library-css' href='{{ URL::asset('css/style.min.css') }}' media='all' />
@@ -38,6 +39,137 @@
     .textwidget p a img {
         width: 100%;
     }
+
+    /* ---------------------START CSS CHU DINH HANH------------------- */
+    * {}
+
+    ul {
+        justify-content: left;
+    }
+
+    h3 {
+        margin-left: 17%;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .footer_introduce {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu_utilities {
+        color: white;
+        border-radius: 20px;
+        background-color: #224361;
+    }
+
+    .footer_logo_img {
+        margin-top: 7%;
+        margin-bottom: 7%;
+    }
+
+    .active-item {
+        color: #0098D2 !important;
+    }
+
+    /* Dropdown css */
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+
+    .hidden-xs {
+        display: flex;
+    }
+
+    .menu_utilities:hover {
+        background: #337ab7;
+        color: white;
+        transition: all .1s ease-in-out;
+    }
+
+    .user_area {
+        margin: 0 auto;
+        display: inline-block;
+        justify-content: center;
+        margin-left: 30px
+    }
+
+    .user_area i {
+        color: white;
+        font-size: 1.7em;
+    }
+
+    .user_area:hover i {
+        color: #337ab7;
+        transition: all .1s ease-in-out;
+    }
+
+    .user_in4_content_area {
+        margin: 40px 0 40px 0;
+        color: white;
+    }
+
+    .base_user_infor {
+        background: #0098D2;
+    }
+
+    .achivement {
+        display: inline-block;
+        background: white;
+        width: 155px;
+        height: 100px;
+        border-radius: 5px;
+        text-align: center;
+        margin: 5px 0px;
+    }
+
+    .base_user_infor_item {
+        padding: 1px 0px 1px 10px;
+        margin-bottom: 10px;
+    }
+
+    .achivement .wraper_layout h6 {
+        color: #000;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .achivement .wraper_layout p {
+        color: tomato;
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    .image_area {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .image_area img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .base_user_infor {
+        background: black;
+        border-radius: 15px;
+    }
+
+
+
+    /* ---------------------END CSS CHU DINH HANH------------------- */
 </style>
 <style>
     #header .site-title {

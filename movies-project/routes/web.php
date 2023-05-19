@@ -41,6 +41,10 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 })->name('register');
+
+Route::get('/user', function () {
+    return view('user');
+})->name('user');
 // Admin routes 
 
 Route::get('/admin/movies-list', [MovieController::class, "listPage"])->name("movies-list");
