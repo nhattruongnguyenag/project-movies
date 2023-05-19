@@ -1,7 +1,6 @@
 @extends("admin.admin")
 @section("content")
 @php
-$categoryWebRoute = "categories";
 $categoryAPIRoute = "api-categories";
 @endphp
 <div class="main-content">
@@ -66,7 +65,6 @@ $categoryAPIRoute = "api-categories";
             update(url, category).then(function(response) {
                 if (response.status == 201) {
                     alert("Cập nhật danh mục thành công");
-                    window.location.href = "{{route($categoryWebRoute)}}";
                 } else {
                     alert("Cập nhật danh mục thất bại");
                 }
@@ -75,7 +73,6 @@ $categoryAPIRoute = "api-categories";
             save(url, category).then(function(response) {
                 if (response.status == 201) {
                     alert("Thêm danh mục thành công");
-                    window.location.href = "{{route($categoryWebRoute)}}";
                 } else {
                     alert("Thêm danh mục thất bại");
                 }

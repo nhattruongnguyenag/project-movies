@@ -9,6 +9,11 @@ class MovieModel extends Model
     protected $table = "movies";
     public $incrementing = true;
 
+    function findAll($orderBy, $orderName)
+    {
+        return self::orderBy($orderBy, $orderName)->get();
+    }
+
     function genreses()
     {
         return $this->belongsToMany(GenresModel::class, "genreses_movies", "movie_id", "genres_id");
@@ -19,9 +24,9 @@ class MovieModel extends Model
         return $this->hasOne(CategoryModel::class, "id", "category_id");
     }
 
-    function findWithPagination($offset)
+    function findWithPagination($offset, $orderBy, $orderName)
     {
-        return self::paginate($offset);
+        return self::orderBy($orderBy, $orderName)->paginate($offset);
     }
 
     function findById($id)
@@ -33,9 +38,15 @@ class MovieModel extends Model
     {
         if (isset($requestObject->id)) {
             $movie = $this->findById($requestObject->id);
+
+            if (isset($requestObject->image)) {
+                $movie->image = $requestObject->image;
+            }
+
             $movie->genreses()->detach();
         } else {
             $movie = new MovieModel();
+            $movie->image = $requestObject->image;
         }
 
         $movie->actor = $requestObject->actor;
@@ -43,12 +54,10 @@ class MovieModel extends Model
         $movie->director = $requestObject->director;
         $movie->description = $requestObject->description;
         $movie->status = $requestObject->status;
-        $movie->image = $requestObject->image;
         $movie->category_id  = $requestObject->category_id;
         $movie->country = $requestObject->country;
         $movie->duration = $requestObject->duration;
         $movie->publish_year = $requestObject->publish_year;
-        $movie->image     = $requestObject->image;
         $movie->save();
 
         $movie->genreses()->attach($requestObject->genresIds);

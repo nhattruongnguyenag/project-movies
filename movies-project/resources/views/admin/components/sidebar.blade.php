@@ -84,6 +84,16 @@
             <b class="arrow"></b>
         </li>
 
+        <li class="@isset($active)
+                                {{ $active == 'roles' ? 'active' : ''}}
+                            @endisset">
+            <a href="{{route('roles')}}">
+                <i class="menu-icon fa fa-key" aria-hidden="true"></i>
+                <span class="menu-text">Quản lý vai trò </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
     </ul><!-- /.nav-list -->
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

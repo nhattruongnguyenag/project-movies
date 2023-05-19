@@ -3,6 +3,7 @@
 <div class="main-content">
     <div class="main-content-inner">
         @include("admin.components.breadcrumb")
+
         <div class="page-content">
             <div class="row">
                 <div class="col-xs-12">
@@ -14,16 +15,13 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 5rem"></th>
-                                        <th class="center">Hình ảnh</th>
-                                        <th class="center">Tên phim</th>
-                                        <th class="center">Quốc gia</th>
-                                        <th class="center">Thời lượng</th>
+                                        <th class="center">Tên vai trò</th>
                                         <th class="center">Thao tác</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($movies as $movie)
+                                    @foreach ($roles as $role)
                                     <tr>
                                         <td class="center">
                                             <label class="pos-rel">
@@ -31,19 +29,11 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </td>
-                                        @php
-                                        $imageURI = isset($movie->image) ? "images/" . $movie->image :
-                                        "admin/assets/img-default/default-movie.png";
-                                        @endphp
-                                        <td class="center" style="width: 250px"><img width="150px"
-                                                src="{{url($imageURI)}}" alt="photo"></td>
-                                        <td>{{$movie != null ? $movie->name : ''}}</td>
-                                        <td class="center">{{$movie != null ? $movie->country : ''}}</td>
-                                        <td class="center">{{$movie != null ? $movie->duration : ''}}</td>
+                                        <td class="center">{{$role->name}}</td>
                                         <td class="center">
                                             <div class="hidden-sm hidden-xs btn-group">
                                                 @php
-                                                $editURI = 'admin/movies/' . $movie->id . '/edit';
+                                                $editURI = 'admin/roles/' . $role->id . '/edit';
                                                 @endphp
                                                 <a href="{{url($editURI)}}" class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
@@ -60,7 +50,7 @@
                             </table>
 
                             <div class="center">
-                                {{ $movies->links() }}
+                                {{ $roles->links() }}
                             </div>
                         </div><!-- /.span -->
                     </div><!-- /.row -->

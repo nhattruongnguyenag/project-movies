@@ -23,6 +23,7 @@
                                 </thead>
 
                                 <tbody>
+                                    @foreach ($users as $user)
                                     <tr>
                                         <td class="center">
                                             <label class="pos-rel">
@@ -30,29 +31,37 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </td>
-                                        <td class="center">admin123</td>
-                                        <td class="center">nguyenvana@gmail.com</td>
-                                        <td class="hidden-480">
+                                        <td class="center">{{$user->username}}</td>
+                                        <td class="center">{{$user->email}}</td>
+                                        <td class="hidden-480 center">
+                                            @if($user->status == "active")
                                             <span class="label label-sm label-success">Bình thường</span>
+                                            @else
+                                            <span class="label label-sm label-warning">Tạm khoá</span>
+                                            @endif
                                         </td>
                                         <td class="center">
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info">
+                                                @php
+                                                $editURI = 'admin/users/' . $user->id . '/edit';
+                                                @endphp
+                                                <a href="{{url($editURI)}}" class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
-                                                
+                                                </a>
+
                                                 <button class="btn btn-xs btn-danger">
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                </button>
-
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="ace-icon fa fa-lock bigger-120"></i>
                                                 </button>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="center">
+                                {{ $users->links() }}
+                            </div>
                         </div><!-- /.span -->
                     </div><!-- /.row -->
                     <div class="hr hr-18 dotted hr-double"></div>

@@ -11,14 +11,14 @@ class GenresModel extends Model
     public $incrementing = true;
     protected $hidden = ["pivot", "created_at", "updated_at"];
 
-    function findAll()
+    function findAll($orderBy, $orderName)
     {
-        return self::all();
+        return self::orderBy($orderBy, $orderName)->get();
     }
 
-    function findWithPagination($offset)
+    function findWithPagination($offset, $orderBy, $orderName)
     {
-        return self::paginate($offset);
+        return self::orderBy($orderBy, $orderName)->paginate($offset);
     }
 
     function findById($id)

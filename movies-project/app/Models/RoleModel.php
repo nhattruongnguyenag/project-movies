@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryModel extends Model
+class RoleModel extends Model
 {
-    protected $table = "categories";
+    protected $table = "roles";
     public $incrementing = true;
     protected $hidden = ["created_at", "updated_at"];
 
@@ -29,15 +28,16 @@ class CategoryModel extends Model
     function saveOrUpdate($requestObject)
     {
         if (isset($requestObject->id)) {
-            $category = $this->findById($requestObject->id);
+            $role = $this->findById($requestObject->id);
         } else {
-            $category = new CategoryModel();
+            $role = new RoleModel();
         }
 
-        $category->name = $requestObject->name;
-        $category->save();
+        $role->name = $requestObject->name;
+        $role->code = $requestObject->code;
+        $role->save();
 
-        return response()->json($category, 201, [
+        return response()->json($role, 201, [
             "Content-Type" => "application/json"
         ]);
     }

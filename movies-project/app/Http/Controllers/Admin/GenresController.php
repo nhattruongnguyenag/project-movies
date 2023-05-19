@@ -18,10 +18,12 @@ class GenresController extends Controller
 
     function listPage()
     {
-        return view('admin.genreses.genreses-list', [
-            'active' => 'genreses',
-            'formEditUri' => 'genreses-edit',
-            'genreses' => $this->genresModel->findWithPagination(self::ADMIN_GENRESES_PERPAGE)
+        return view("admin.genreses.genreses-list", [
+            "active" => "genreses",
+            "formEditUri" => "genreses-edit",
+            "genreses" => $this->genresModel->findWithPagination(self::ADMIN_GENRESES_PERPAGE, "id", "DESC"),
+            "currentPage" => "Danh sách thể loại",
+            "title" => "Danh sách thể loại"
         ]);
     }
 
@@ -31,21 +33,27 @@ class GenresController extends Controller
             $genres = $this->genresModel->findById($request->id);
         }
 
-        return view('admin.genreses.genreses-edit', [
-            'active' => 'genreses',
-            "genres" => $genres ?? null
+        return view("admin.genreses.genreses-edit", [
+            "active" => "genreses",
+            "genres" => $genres ?? null,
+            "currentPage" => isset($genres)  ? "Cập nhật thể loại" : "Thêm thể loại",
+            "linkedPage" => [
+                "link" => route("genreses"),
+                "name" => "Danh sách thể loại"
+            ],
+            "title" => isset($genres)  ? "Cập nhật thể loại" : "Thêm thể loại"
         ]);
     }
 
     function updateAPI(Request $request)
     {
-        $category = $request->only(['id', 'name']);
+        $category = $request->only(["id", "name"]);
         return $this->genresModel->saveOrUpdate((object) $category);
     }
 
     function saveAPI(Request $request)
     {
-        $category = $request->only(['name']);
+        $category = $request->only(["name"]);
         return $this->genresModel->saveOrUpdate((object) $category);
     }
 }

@@ -1,6 +1,5 @@
 @extends("admin.admin")
 @php
-$moviesWebRoute = "movies";
 $moviesAPIRoute = "api-movies";
 @endphp
 @section("content")
@@ -75,13 +74,13 @@ $moviesAPIRoute = "api-movies";
                                 <select class="col-xs-12 col-sm-8" id="category_id" name="category_id">
                                     <option value="-1" disabled selected>-- Chọn danh mục --</option>
 
-                                       {{ $movie->category->id}}
-
                                     @foreach ($categories as $category)
-                                    <option value="{{$category->id}}" {{$movie->category->id == $category->id ? '
-                                        selected ' : ''}}>{{$category->name}}</option>
+                                    <option value="{{$category->id}}" @isset($movie, $movie->category) {{
+                                        $movie->category->id ==
+                                        $category->id ? '
+                                        selected ' : '' }}
+                                        @endisset>{{$category->name}}</option>
                                     @endforeach
-
                                 </select>
                             </div>
                         </div>
@@ -115,8 +114,11 @@ $moviesAPIRoute = "api-movies";
                         <div class="form-group">
                             <div class="col-sm-3 control-label no-padding-right" for="form-field-1"></div>
                             <div class="col-sm-9">
-                                <img width="150px" src="https://media.comicbook.com/files/img/default-movie.png"
-                                    alt="photo">
+                                @php
+                                $imageURI = isset($movie->image) ? "images/" . $movie->image :
+                                "admin/assets/img-default/default-movie.png";
+                                @endphp
+                                <img id="imageRender" width="150px" src="{{url($imageURI)}}" alt="photo">
                             </div>
                         </div>
 
@@ -127,14 +129,12 @@ $moviesAPIRoute = "api-movies";
                                     Hình ảnh
                                 </label>
                                 <div class="col-sm-9" style="padding-left: 6px; padding-right: 0">
-                                    <span class="col-xs-12 col-sm-8 ace-file-input"><input type="file" id="image"
-                                            name="image">
-                                        <span class="ace-file-container" data-title="Choose">
-                                            <span class="ace-file-name" data-title="Chọn hình ảnh ...">
-                                                <i class=" ace-icon fa fa-upload"></i>
-                                            </span>
-                                        </span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a>
-                                    </span>
+                                    <label class="col-xs-12 col-sm-8 ace-file-input"><input id="image" name="image"
+                                            type="file" id="id-input-file-2"><span class="ace-file-container"
+                                            data-title="Chọn file"><span class="ace-file-name" id="reviewFileName"
+                                                data-title="No File ..."><i
+                                                    class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                            href="#"><i class=" ace-icon fa fa-times"></i></a></label>
                                 </div>
                             </div>
                         </div>
@@ -170,22 +170,39 @@ $moviesAPIRoute = "api-movies";
     const description = document.querySelector("#description");
     const status = document.querySelector("#status");
     const image = document.querySelector("#image");
+    const imageRender = document.querySelector("#imageRender");
+    const reviewFileName = document.querySelector("#reviewFileName");
     const category_id = document.querySelector("#category_id  ");
     const country = document.querySelector("#country");
     const duration = document.querySelector("#duration");
     const publish_year = document.querySelector("#publish_year");
     const genreses = document.querySelectorAll(".genreses");
 
-    @foreach($movie->genreses as $genres) 
-        genreses.forEach(element => {
+    let file = null;
+
+    const url = '{{route($moviesAPIRoute)}}';
+    const imageUploadUrl = '{{route("upload-image")}}';
+
+    image.addEventListener("change", function(event) {
+        file = event.target.files[0];
+        reviewFileName.setAttribute('data-title', file.name);
+        imageRender.src = URL.createObjectURL(file);
+    });
+
+
+    @isset($movie)
+        @foreach($movie->genreses as $genres)
+            genreses.forEach(element => {
             if (element.value == {{$genres->id}}) {
-                element.selected = true;
+            element.selected = true;
             }
-        });
-    @endforeach
+            });
+            @endforeach
+    @endisset
 
     function instanceObjectFromInput() {
         let genresesArray = [];
+        let imageUploadName = null;
         genreses.forEach(element => {
             if (element.selected) {
                 genresesArray.push(element.value);
@@ -199,7 +216,7 @@ $moviesAPIRoute = "api-movies";
             'name': name.value,
             'description': description.value,
             'status': status.value,
-            'image': image.value ? image.value : null,
+            'image': imageUploadName,
             'category_id': category_id.value,
             'country': country.value,
             'duration': duration.value,
@@ -208,34 +225,39 @@ $moviesAPIRoute = "api-movies";
         };
     }
 
-    const url = '{{route($moviesAPIRoute)}}';
-
     btnSubmit.addEventListener('click', async function(event) {
-    //     event.preventDefault();
+        event.preventDefault();
         let movie = instanceObjectFromInput();
-        console.log(movie);
-        
-        if (movie.id) {
-            update(url, movie).then(function(response) {
-                console.log(response);
-                if (response.status == 201) {
-                    alert("Cập nhật phim thành công");
-                    window.location.href = "{{route($moviesWebRoute)}}";
-                } else {
-                    alert("Cập nhật phim thất bại");
-                }
-            });
-        } else {
-            save(url, movie).then(function(response) {
-                console.log(response);
-                if (response.status == 201) {
-                    alert("Thêm phim thành công");
-                    window.location.href = "{{route($moviesWebRoute)}}";
-                } else {
-                    alert("Thêm phim thất bại");
-                }
-            });
-        }
+
+        const formData = new FormData();
+                
+        formData.append('image', file);
+                
+        uploadFile(imageUploadUrl, formData).then(function(response) {
+            if (response.status == 200) {
+                movie.image = response.body.image;
+            }
+
+            if (movie.id) {
+                update(url, movie).then(function(response) {
+                    console.log(response);
+                    if (response.status == 201) {
+                        alert("Cập nhật phim thành công");
+                    } else {
+                        alert("Cập nhật phim thất bại");
+                    }
+                });
+            } else {
+                save(url, movie).then(function(response) {
+                    console.log(response);
+                    if (response.status == 201) {
+                        alert("Thêm phim thành công");
+                    } else {
+                        alert("Thêm phim thất bại");
+                    }
+                });
+            }
+        });
     });
 </script>
 @endsection

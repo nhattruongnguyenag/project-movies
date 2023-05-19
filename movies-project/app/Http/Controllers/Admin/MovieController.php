@@ -27,27 +27,35 @@ class MovieController extends Controller
 
     function listPage()
     {
-        return view('admin.movies.movies-list', [
-            'active' => 'movies',
-            'formEditUri' => 'movies-edit',
-            'movies' => $this->movieModel->findWithPagination(self::ADMIN_MOVIES_PERPAGE)
+        return view("admin.movies.movies-list", [
+            "active" => "movies",
+            "formEditUri" => "movies-edit",
+            "movies" => $this->movieModel->findWithPagination(self::ADMIN_MOVIES_PERPAGE, "id", "DESC"),
+            "currentPage" => "Danh sách phim",
+            "title" => "Danh sách phim"
         ]);
     }
 
     function editPage(Request $request)
-    {;
+    {
         if (isset($request->id)) {
             $movie = $this->movieModel->findById($request->id);
         }
 
-        $genreses = $this->genresModel->findAll();
-        $categories = $this->categoryModel->findAll();
+        $genreses = $this->genresModel->findAll("name", "ASC");
+        $categories = $this->categoryModel->findAll("name", "ASC");
 
-        return view('admin.movies.movies-edit', [
-            'active' => 'movies',
-            "movie" => new MovieResource($movie) ?? null,
+        return view("admin.movies.movies-edit", [
+            "active" => "movies",
+            "movie" => isset($movie) ? new MovieResource($movie) : null,
             "genreses" => $genreses,
-            "categories" => $categories
+            "categories" => $categories,
+            "currentPage" => isset($movie)  ? "Cập nhật phim" : "Thêm phim",
+            "linkedPage" => [
+                "link" => route("movies"),
+                "name" => "Danh sách phim"
+            ],
+            "title" => isset($movie)  ? "Cập nhật phim" : "Thêm phim"
         ]);
     }
 
