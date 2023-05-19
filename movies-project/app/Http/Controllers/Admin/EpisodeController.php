@@ -10,7 +10,8 @@ class EpisodeController extends Controller
     function listPage()
     {
         return view('admin.episodes.episodes-list', [
-            'active' => 'episodes-list'
+            'active' => 'episodes-list',
+            'formEditUri' => 'episodes-edit'
         ]);
     }
 

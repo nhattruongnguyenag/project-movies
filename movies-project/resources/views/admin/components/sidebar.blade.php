@@ -35,9 +35,9 @@
 
     <ul class="nav nav-list">
         <li class="@isset($active)
-            {{ $active == 'movies-list' ? 'active' : ''}}
+            {{ $active == 'movies' ? 'active' : ''}}
             @endisset">
-            <a href="{{route('movies-list')}}">
+            <a href="{{route('movies')}}">
                 <i class="menu-icon fa fa-film" aria-hidden="true"></i>
                 <span class="menu-text">Quản lý phim</span>
             </a>
@@ -45,9 +45,9 @@
         </li>
 
         <li class="@isset($active)
-                {{ $active == 'episodes-list' ? 'active' : ''}}
+                {{ $active == 'episodes' ? 'active' : ''}}
             @endisset">
-            <a href="{{route('episodes-list')}}">
+            <a href="{{route('episodes')}}">
                 <i class="menu-icon fa fa-file-video-o" aria-hidden="true"></i>
                 <span class="menu-text">Quản lý tập phim</span>
             </a>
@@ -55,9 +55,9 @@
         </li>
 
         <li class="@isset($active)
-                    {{ $active == 'categories-list' ? 'active' : ''}}
+                    {{ $active == 'categories' ? 'active' : ''}}
                 @endisset">
-            <a href="{{route('categories-list')}}">
+            <a href="{{route('categories')}}">
                 <i class="menu-icon fa fa-folder-open-o" aria-hidden="true"></i>
                 <span class="menu-text">Quản lý danh mục</span>
             </a>
@@ -65,9 +65,9 @@
         </li>
 
         <li class="@isset($active)
-                        {{ $active == 'genreses-list' ? 'active' : ''}}
+                        {{ $active == 'genreses' ? 'active' : ''}}
                     @endisset">
-            <a href="{{route('genreses-list')}}">
+            <a href="{{route('genreses')}}">
                 <i class="menu-icon fa fa-th-large" aria-hidden="true"></i>
                 <span class="menu-text">Quản lý thể loại</span>
             </a>
@@ -75,9 +75,9 @@
         </li>
 
         <li class="@isset($active)
-                        {{ $active == 'users-list' ? 'active' : ''}}
+                        {{ $active == 'users' ? 'active' : ''}}
                     @endisset">
-            <a href="{{route('users-list')}}">
+            <a href="{{route('users')}}">
                 <i class="menu-icon fa fa-user" aria-hidden="true"></i>
                 <span class="menu-text">Quản lý người dùng</span>
             </a>

@@ -21,6 +21,7 @@
                                 </thead>
 
                                 <tbody>
+                                    @foreach ($categories as $category)
                                     <tr>
                                         <td class="center">
                                             <label class="pos-rel">
@@ -28,12 +29,15 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </td>
-                                        <td class="center">Phim lẻ</td>
+                                        <td class="center">{{$category->name}}</td>
                                         <td class="center">
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info">
+                                                @php
+                                                $editURI = 'admin/categories/' . $category->id . '/edit';
+                                                @endphp
+                                                <a href="{{url($editURI)}}" class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
+                                                </a>
 
                                                 <button class="btn btn-xs btn-danger">
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
@@ -41,8 +45,13 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="center">
+                                {{ $categories->links() }}
+                            </div>
                         </div><!-- /.span -->
                     </div><!-- /.row -->
                     <div class="hr hr-18 dotted hr-double"></div>

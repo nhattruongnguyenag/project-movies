@@ -9,21 +9,10 @@
             <a href="#">Trang chủ</a>
         </li>
 
-        <li>
-            <a href="#">Quản lý tập phim</a>
-        </li>
+        <li class="active">@isset($pageName)
+            {{$pageName}}
+            @endisset</li>
 
-        <li>
-            <a href="#">Quản lý danh mục</a>
-        </li>
-
-        <li>
-            <a href="#">Quản lý thể loại</a>
-        </li>
-
-        <li>
-            <a href="#">Quản lý người dùng</a>
-        </li>
     </ul><!-- /.breadcrumb -->
 
     <div class="nav-search" id="nav-search">
