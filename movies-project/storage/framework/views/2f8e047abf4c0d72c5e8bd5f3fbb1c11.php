@@ -8,8 +8,8 @@
 <body class="home blog halimthemes halimmovies" data-masonry="">
 
     <?php echo $__env->make('modules.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
     <?php echo $__env->make('modules.navigation', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
     <div class="container">
         <div class="row fullwith-slider"></div>
@@ -22,13 +22,13 @@
                 </div>
             </div>
 
-            <?php echo $__env->make('modules.newFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('modules.listNewFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
 
-                <?php echo $__env->make('modules.typeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php echo $__env->make('modules.typeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php echo $__env->make('modules.typeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('modules.listTypeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('modules.listTypeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('modules.listTypeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                 <div class="clearfix"></div>
             </main>
@@ -37,6 +37,7 @@
         </div>
     </div>
     
+
     <?php echo $__env->make('modules.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('assets.link_js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
 </body>

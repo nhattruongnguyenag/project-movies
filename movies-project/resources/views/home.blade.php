@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            @include('modules.newFilm')
+            @include('modules.listNewFilm')
 
             <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
 
