@@ -1,7 +1,6 @@
 @extends("admin.admin")
 @section("content")
 @php
-$genresesWebRoute = "genreses";
 $genresesAPIRoute = "api-genreses";
 @endphp
 @section("content")
@@ -72,7 +71,6 @@ $genresesAPIRoute = "api-genreses";
                 console.log(response);
                 if (response.status == 201) {
                     alert("Cập nhật thể loại thành công");
-                    window.location.href = "{{route($genresesWebRoute)}}";
                 } else {
                     alert("Cập nhật thể loại thất bại");
                 }
@@ -82,7 +80,6 @@ $genresesAPIRoute = "api-genreses";
                 console.log(response);
                 if (response.status == 201) {
                     alert("Thêm thể loại thành công");
-                    window.location.href = "{{route($genresesWebRoute)}}";
                 } else {
                     alert("Thêm thể loại thất bại");
                 }

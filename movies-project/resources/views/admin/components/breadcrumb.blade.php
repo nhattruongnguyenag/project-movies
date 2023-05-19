@@ -6,11 +6,17 @@
     <ul class="breadcrumb">
         <li>
             <i class="ace-icon fa fa-home home-icon"></i>
-            <a href="#">Trang chủ</a>
+            <a href="{{route('movies')}}">Trang chủ</a>
         </li>
 
-        <li class="active">@isset($pageName)
-            {{$pageName}}
+        @isset($linkedPage)
+        <li>
+            <a href="{{$linkedPage['link']}}">{{$linkedPage['name']}}</a>
+        </li>
+        @endisset
+
+        <li class="active">@isset($currentPage)
+            {{$currentPage}}
             @endisset</li>
 
     </ul><!-- /.breadcrumb -->

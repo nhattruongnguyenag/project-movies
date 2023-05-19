@@ -22,6 +22,7 @@
                                 </thead>
 
                                 <tbody>
+                                    @foreach ($episodes as $episode)
                                     <tr>
                                         <td class="center">
                                             <label class="pos-rel">
@@ -29,18 +30,17 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </td>
-                                        <td class="center">NỮ CHÚA RỪNG XANH</td>
-                                        <td class="center">1</td>
-                                        <td class="left" style="width: 50%">{{'<iframe width="560" height="315"
-                                                src="https://www.youtube.com/embed/LPMvPFzsVlM"
-                                                title="YouTube video player" frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen></iframe>'}}</td>
+                                        <td class="center">{{$episode->movie->name ?? ''}}</td>
+                                        <td class="center">{{$episode->episode ?? ''}}</td>
+                                        <td class="left" style="width: 50%">{{$episode->link ?? ''}}</td>
                                         <td class="center">
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info">
+                                                @php
+                                                $editURI = 'admin/episodes/' . $episode->id . '/edit';
+                                                @endphp
+                                                <a href="{{url($editURI)}}" class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
+                                                </a>
 
                                                 <button class="btn btn-xs btn-danger">
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
@@ -48,8 +48,13 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="center">
+                                {{ $episodes->links() }}
+                            </div>
                         </div><!-- /.span -->
                     </div><!-- /.row -->
                     <div class="hr hr-18 dotted hr-double"></div>

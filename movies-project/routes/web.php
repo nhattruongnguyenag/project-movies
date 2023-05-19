@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EpisodeController;
 use App\Http\Controllers\Admin\GenresController;
 use App\Http\Controllers\Admin\MovieController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\IOFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,12 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Admin routes 
-
 Route::controller(MovieController::class)->group(function () {
     Route::get('/admin/movies', "listPage")->name("movies");
     Route::get('/admin/movies/{id}/edit', "editPage");
@@ -31,21 +27,33 @@ Route::controller(MovieController::class)->group(function () {
 });
 
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('/admin/categories', "listPage")->name("categories");
+    Route::get('admin/categories', "listPage")->name("categories");
     Route::get('admin/categories/{id}/edit', "editPage");
-    Route::get('/admin/categories/edit', "editPage")->name("categories-edit");
+    Route::get('admin/categories/edit', "editPage")->name("categories-edit");
 });
 
 Route::controller(GenresController::class)->group(function () {
-    Route::get('/admin/genreses', [GenresController::class, "listPage"])->name("genreses");
-    Route::get('/admin/genreses/{id}/edit', [GenresController::class, "editPage"]);
-    Route::get('/admin/genreses/edit', [GenresController::class, "editPage"])->name("genreses-edit");
+    Route::get('admin/genreses', [GenresController::class, "listPage"])->name("genreses");
+    Route::get('admin/genreses/{id}/edit', [GenresController::class, "editPage"]);
+    Route::get('admin/genreses/edit', [GenresController::class, "editPage"])->name("genreses-edit");
 });
 
-Route::get('/admin/episodes-list', [EpisodeController::class, "listPage"])->name("episodes");
-Route::get('/admin/episodes-edit', [EpisodeController::class, "editPage"])->name("episodes-edit");
+Route::controller(EpisodeController::class)->group(function () {
+    Route::get('admin/episodes', "listPage")->name("episodes");
+    Route::get('admin/episodes/{id}/edit', "editPage");
+    Route::get('admin/episodes-edit', "editPage")->name("episodes-edit");
+});
 
+Route::controller(UserController::class)->group(function () {
+    Route::get('admin/users', "listPage")->name("users");
+    Route::get('admin/users/{id}/edit', "editPage");
+    Route::get('admin/users-edit', "editPage")->name("users-edit");
+});
 
+Route::controller(RoleController::class)->group(function () {
+    Route::get('admin/roles', "listPage")->name("roles");
+    Route::get('admin/roles/{id}/edit', "editPage");
+    Route::get('admin/roles/edit', "editPage")->name("roles-edit");
+});
 
-Route::get('/admin/users-list', [UserController::class, "listPage"])->name("users");
-Route::get('/admin/users-edit', [UserController::class, "editPage"])->name("users-edit");
+Route::get('images/{image}', [IOFileController::class, "renderImage"])->name('get-image');

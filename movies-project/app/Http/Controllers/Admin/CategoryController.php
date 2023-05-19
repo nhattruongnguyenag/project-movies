@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use Illuminate\Http\Request;
-use PSpell\Config;
 
 class CategoryController extends Controller
 {
@@ -19,10 +18,12 @@ class CategoryController extends Controller
 
     function listPage()
     {
-        return view('admin.categories.categories-list', [
-            'active' => 'categories',
-            'formEditUri' => 'categories-edit',
-            'categories' => $this->categoryModel->findWithPagination(self::ADMIN_CATEGORIES_PERPAGE)
+        return view("admin.categories.categories-list", [
+            "active" => "categories",
+            "formEditUri" => "categories-edit",
+            "categories" => $this->categoryModel->findWithPagination(self::ADMIN_CATEGORIES_PERPAGE, "id", "DESC"),
+            "currentPage" => "Danh sách danh mục",
+            "title" => "Danh sách danh mục"
         ]);
     }
 
@@ -32,21 +33,27 @@ class CategoryController extends Controller
             $category = $this->categoryModel->findById($request->id);
         }
 
-        return view('admin.categories.categories-edit', [
-            'active' => 'categories',
-            "category" => $category ?? null
+        return view("admin.categories.categories-edit", [
+            "active" => "categories",
+            "category" => $category ?? null,
+            "currentPage" => isset($category)  ? "Cập nhật danh mục" : "Thêm danh mục",
+            "linkedPage" => [
+                "link" => route("categories"),
+                "name" => "Danh sách danh mục"
+            ],
+            "title" => isset($category)  ? "Cập nhật danh mục" : "Thêm danh mục"
         ]);
     }
 
     function updateAPI(Request $request)
     {
-        $category = $request->only(['id', 'name']);
+        $category = $request->only(["id", "name"]);
         return $this->categoryModel->saveOrUpdate((object) $category);
     }
 
     function saveAPI(Request $request)
     {
-        $category = $request->only(['name']);
+        $category = $request->only(["name"]);
         return $this->categoryModel->saveOrUpdate((object) $category);
     }
 }
