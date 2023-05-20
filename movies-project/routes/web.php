@@ -61,7 +61,6 @@ Route::get('/user', function () {
     return view('user');
 })->name('user');
 // Admin routes 
->>>>>>> view
 
 Route::controller(GenresController::class)->group(function () {
     Route::get('admin/genreses', [GenresController::class, "listPage"])->name("genreses");
