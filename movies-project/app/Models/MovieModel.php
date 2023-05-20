@@ -69,4 +69,15 @@ class MovieModel extends Model
     {
         self::destroy($ids);
     }
+
+    function type($movie)
+    {
+        $temp = EpisodeModel::where('move_id', $movie->id)->first();
+        if (isset($temp->type)) {
+            $movie->type = $temp->type;
+        } else {
+            $movie->type = "";
+        }
+        return $movie;
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\IOFileController;
+use App\Http\Controllers\MovieController as ClientMovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,3 +88,4 @@ Route::controller(RoleController::class)->group(function () {
 });
 
 Route::get('images/{image}', [IOFileController::class, "renderImage"])->name('get-image');
+Route::get('movies',[ClientMovieController::class, 'getMovieByCategoryId']);
