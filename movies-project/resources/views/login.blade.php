@@ -15,12 +15,17 @@
                 <div class="card border-0">
                     <div class="card-body p-0">
                         <div class="row no-gutters">
-                            <div class="col-lg-7">
+                            <div class="col-lg-7" style="background: black;border-radius: 5px;">
                                 <div class="p-5">
                                     <div class="mb-5">
-                                        <h1 style="font-weight: bold; color: #fff;">Đăng Nhập</h1>
+                                        <h1 style="font-weight: bold; color: #fff;">Đăng nhập</h1>
                                     </div>
                                     <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputName1" style="color: #fff;">Tên Người Dùng</label>
+                                            <input type="name" class="form-control" id="exampleInputName1"
+                                                placeholder="Nhập tên người dùng">
+                                        </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1" style="color: #fff;">Địa Chỉ Email</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1"
@@ -33,14 +38,14 @@
                                         </div>
                                         <button type="submit" class="btn"
                                             style="background: #e46565; color: #fff;">Đăng
-                                            nhập</button>
-                                        <p class="text-muted text-center mt-3 mb-0">Chưa có tài khoản? <a
-                                                href="register.html" class="text-primary ml-1">Đăng ký</a></p>
+                                            ký</button>
+                                        <p class="text-muted text-center mt-3 mb-0">Đã có tài khoản? <a
+                                                href="register.html" class="text-primary ml-1">Đăng nhập</a></p>
                                     </form>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <div class="slideshow-container">
+                                <div class="slideshow-container" style="height: 353px;overflow: hidden;">
                                     <div class="mySlides fade">
                                         <img src="https://movies.sterkinekor.co.za/CDN/media/entity/get/FilmPosterGraphic/HO00002694?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
                                             style="width:100%">
@@ -65,9 +70,12 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

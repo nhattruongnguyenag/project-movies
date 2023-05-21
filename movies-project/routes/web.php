@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\EpisodeController;
 use App\Http\Controllers\Admin\GenresController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\User\MovieController as UserMovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,3 +62,14 @@ Route::get('/admin/genreses-edit', [GenresController::class, "editPage"])->name(
 
 Route::get('/admin/users-list', [UserController::class, "listPage"])->name("users-list");
 Route::get('/admin/users-edit', [UserController::class, "editPage"])->name("users-edit");
+
+
+//-----------------------------Chu Dinh Hanh----------------------------//
+//Get a list of movies have most view every time
+Route::get('/movie/top-view-all', [UserMovieController::class, "getTheMostTopViewEveryTime"])->name('getTopViewAll');
+// //Get a list of movies have most view in current month
+Route::get('/movie/top-view-month', [UserMovieController::class, "getTheMostTopViewInMonth"])->name('getTopViewCurrentMonth');
+// //Get a list of movies have most view in current week
+Route::get('/movie/top-view-week', [UserMovieController::class, "getTheMostTopViewInWeek"])->name('getTopViewCurrentWeek');
+//Get a list of movies have most view in current day
+Route::get('/movie/top-view-day', [UserMovieController::class, "getTheMostTopViewInDay"])->name('getTopViewCurrentDay');

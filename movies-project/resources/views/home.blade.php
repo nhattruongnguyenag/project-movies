@@ -2,7 +2,7 @@
 <html lang="vi">
 
 <head>
-    @include('assets.link_css');
+    @include('assets.link_css')
 </head>
 
 <body class="home blog halimthemes halimmovies" data-masonry="">
@@ -32,11 +32,11 @@
 
                 <div class="clearfix"></div>
             </main>
-            
+
             @include('modules.topViews')
         </div>
     </div>
-    
+
 
     @include('modules.footer')
     @include('assets.link_js');

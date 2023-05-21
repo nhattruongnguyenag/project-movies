@@ -1,10 +1,10 @@
 <meta charset="utf-8" />
 <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-<meta name="theme-color" content="#234556">
+<meta name="theme-color" content="#234556"/>
 <meta http-equiv="Content-Language" content="vi" />
 <meta content="VN" name="geo.region" />
 <meta name="DC.language" scheme="utf-8" content="vi" />
-<meta name="language" content="Việt Nam">
+<meta name="language" content="Việt Nam"/>
 <link rel="stylesheet" href="css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link rel="shortcut icon"
@@ -16,8 +16,6 @@
 <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 <title>Phim hay 2021 - Xem phim hay nhất</title>
 <meta name="description" content="Phim hay 2021 - Xem phim hay nhất, xem phim online miễn phí, phim hot , phim nhanh" />
-<link rel="canonical" href="">
-<link rel="next" href="" />
 <meta property="og:locale" content="vi_VN" />
 <meta property="og:title" content="Phim hay 2020 - Xem phim hay nhất" />
 <meta property="og:description"
@@ -29,7 +27,6 @@
 <meta property="og:image:height" content="55" />
 
 <link rel='dns-prefetch' href='//s.w.org' />
-{{-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' id='bootstrap-css' href='{{ URL::asset('css/boostrap.min.css') }}' media='all' />
 <link rel='stylesheet' id='style-css' href='{{ URL::asset('css/style.css') }}' media='all' />
@@ -41,7 +38,6 @@
     }
 
     /* ---------------------START CSS CHU DINH HANH------------------- */
-    * {}
 
     ul {
         justify-content: left;
@@ -210,7 +206,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        text-align: center
+        text-align: center;
     }
 
     #overlay_mb .overlay_mb_content .cls_ov {

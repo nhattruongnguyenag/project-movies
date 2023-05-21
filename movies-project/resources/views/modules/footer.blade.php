@@ -6,7 +6,7 @@
              <div class="col-md-3 wrapper_introduce">
                 <div class="footer_introduce">
                    <div class="footer_logo_img">
-                      <img src="./img/logo.png" alt="">
+                      <a href="{{route('home')}}"><img src="{{ URL::asset('images/logo.png') }}" alt=""></a>
                    </div>
                    <div class="footer_content_below_logo">
                       <p> <span> <a href="#" class="active-item">Phimoi</a></span> - Trang xem phim Online với giao diện mới được bố trí và thiết kế thân thiện với người dùng. Nguồn phim được tổng hợp từ các website lớn với đa dạng các đầu phim và thể loại vô cùng phong phú.</p>
