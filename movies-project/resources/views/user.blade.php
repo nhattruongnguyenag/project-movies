@@ -2,7 +2,7 @@
 <html lang="vi">
 
 <head>
-    @include('assets.link_css');
+    @include('assets.link_css')
 </head>
 
 <body class="post-template-default single single-post postid-38424 single-format-standard halimthemes halimmovies" data-masonry="">
