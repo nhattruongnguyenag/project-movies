@@ -34,6 +34,7 @@
         <div class="clearfix"></div>
     </div>
 </aside>
+
 <script>
     // Lấy danh sách phim có lượt xem cao nhất trong mọi thời gian. 
     // const detail = document.querySelector('.detail_product');

@@ -3,16 +3,13 @@
         <div class="row" id="headwrap">
             <div class="col-md-3 col-sm-6 slogan">
                 <a class="logo" href="" title="phim hay">
-                  <img src="{{url('images/logo.png')}}" alt="{{route('home')}}">
+                    <img src="{{ url('images/logo.png') }}" alt="{{ route('home') }}">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6 halim-search-form hidden-xs">
                 <div class="header-nav">
                     <div class="col-xs-12">
-
                         @include('modules.search')
-
-                        <ul class="ui-autocomplete ajax-results hidden"></ul>
                     </div>
                 </div>
             </div>
@@ -28,8 +25,12 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item" href="#">Phim vừa xem</a></li>
                             <li><a class="dropdown-item" href="#">Phim đã thích</a></li>
-                            <li><a class="dropdown-item" href="{{route('login')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i>Đăng nhập</a></li>
-                            <li><a class="dropdown-item" href="{{route('register')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i>Đăng ký</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}"><i
+                                        class="fa-solid fa-arrow-right-to-bracket"></i>Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}"><i
+                                        class="fa-solid fa-arrow-right-to-bracket"></i>Đăng ký</a></li>
+                            <li><a class="dropdown-item" href=""><i
+                                        class="fa-solid fa-arrow-right-to-bracket"></i>Viết Blog</a></li>
                         </ul>
                     </div>
                 </div>

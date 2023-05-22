@@ -3,6 +3,7 @@
 
 <head>
     @include('assets.link_css')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body class="home blog halimthemes halimmovies" data-masonry="">

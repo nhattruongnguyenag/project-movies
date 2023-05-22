@@ -73,3 +73,5 @@ Route::get('/movie/top-view-month', [UserMovieController::class, "getTheMostTopV
 Route::get('/movie/top-view-week', [UserMovieController::class, "getTheMostTopViewInWeek"])->name('getTopViewCurrentWeek');
 //Get a list of movies have most view in current day
 Route::get('/movie/top-view-day', [UserMovieController::class, "getTheMostTopViewInDay"])->name('getTopViewCurrentDay');
+//Search for movies have same name or correct name
+Route::post('/movie/searchMovies', [UserMovieController::class, "getMovieBySearch"])->name('getMoviesByName');

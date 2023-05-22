@@ -156,4 +156,12 @@ class MovieController extends Controller
         }
         return  $array;
     }
+
+    public function getMovieBySearch(Request $request)
+    {
+        $value = DB::table('movies')
+            ->where('name', 'like', '%' . $request->name . '%')
+            ->get();
+        return $value;
+    }
 }

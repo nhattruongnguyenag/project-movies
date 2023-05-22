@@ -37,9 +37,9 @@
             <li><a title="Phim Lẻ" href="{{ route('category') }}">Phim Lẻ</a></li>
             <li><a title="Phim Bộ" href="{{ route('category') }}">Phim Bộ</a></li>
             <li><a title="Phim Chiếu Rạp" href="{{ route('category') }}">Phim Chiếu Rạp</a></li>
+            <li class="mega"><a title="Phim Mới" href="">Lọc phim</a></li>
+            <li class="mega"><a title="Phim Mới" href="">Blog</a></li>
         </ul>
     </div>
-    <ul class="nav navbar-nav navbar-left" style="background:#000;">
-        <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>
-    </ul>
+   
 </div>

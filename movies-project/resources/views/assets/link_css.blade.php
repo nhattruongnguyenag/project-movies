@@ -1,10 +1,10 @@
 <meta charset="utf-8" />
 <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-<meta name="theme-color" content="#234556"/>
+<meta name="theme-color" content="#234556" />
 <meta http-equiv="Content-Language" content="vi" />
 <meta content="VN" name="geo.region" />
 <meta name="DC.language" scheme="utf-8" content="vi" />
-<meta name="language" content="Việt Nam"/>
+<meta name="language" content="Việt Nam" />
 <link rel="stylesheet" href="css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link rel="shortcut icon"
@@ -25,8 +25,8 @@
 <meta property="og:image" content="" />
 <meta property="og:image:width" content="300" />
 <meta property="og:image:height" content="55" />
-
 <link rel='dns-prefetch' href='//s.w.org' />
+<link rel="stylesheet" href="{{ URL::asset('css/boostrap.min.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' id='bootstrap-css' href='{{ URL::asset('css/boostrap.min.css') }}' media='all' />
 <link rel='stylesheet' id='style-css' href='{{ URL::asset('css/style.css') }}' media='all' />
@@ -38,6 +38,10 @@
     }
 
     /* ---------------------START CSS CHU DINH HANH------------------- */
+    .search_wrapper_area {
+        width: 350px !important;
+    }
+
 
     ul {
         justify-content: left;
@@ -163,7 +167,32 @@
         border-radius: 15px;
     }
 
+    /* Scroll bar */
+    .scrollbar {
+        background-color: #F5F5F5;
+        height: 430px;
+        margin-bottom: 25px;
+        margin-left: 4px;
+        margin-top: 40px;
+        overflow-y: scroll;
+    }
 
+    .force-overflow {
+        min-height: 1280px;
+    }
+
+    /* movies search value hover */
+    .image_search_result {
+        transition: 0.5s all;
+    }
+
+    .movie_movies_item:hover .image_search_result {
+        scale: 1.2;
+    }
+
+    .name_movie_searh_result:hover h2{
+        color: yellow !important;
+    }
 
     /* ---------------------END CSS CHU DINH HANH------------------- */
 </style>
