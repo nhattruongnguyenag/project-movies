@@ -40,6 +40,27 @@ async function update(url, object) {
     };
 }
 
+async function deleteAPI(url, object) {
+    const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(object)
+    });
+
+    let result = await response;
+
+    let body = await result.json();
+
+    return {
+        'status': result.status,
+        'url': result.url,
+        'body': body
+    };
+}
+
 
 async function uploadFile(url, data) {
     const response = await fetch(url, {

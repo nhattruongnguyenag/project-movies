@@ -68,4 +68,9 @@ class MovieController extends Controller
     {
         return $this->movieModel->saveOrUpdate($request);
     }
+
+    function deleteAPI(Request $request)
+    {
+        return $this->movieModel->deleteByIds($request->ids);
+    }
 }

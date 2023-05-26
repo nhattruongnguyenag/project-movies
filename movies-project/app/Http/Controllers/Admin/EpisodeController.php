@@ -62,4 +62,9 @@ class EpisodeController extends Controller
     {
         return $this->episodeModel->saveOrUpdate($request);
     }
+
+    function deleteAPI(Request $request)
+    {
+        return $this->episodeModel->deleteByIds($request->ids);
+    }
 }

@@ -39,7 +39,7 @@
     
 
     @include('modules.footer')
-    @include('assets.link_js');
+    @include('assets.link_js')
 </body>
 
 </html>

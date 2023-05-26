@@ -2,7 +2,7 @@
 <html lang="vi">
 
 <head>
-    <?php echo $__env->make('assets.link_css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+    <?php echo $__env->make('assets.link_css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </head>
 
 <body class="home blog halimthemes halimmovies" data-masonry="">
@@ -39,7 +39,7 @@
     
 
     <?php echo $__env->make('modules.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php echo $__env->make('assets.link_js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+    <?php echo $__env->make('assets.link_js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
