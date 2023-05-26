@@ -62,4 +62,9 @@ class UserController extends Controller
     {
         return $this->userModel->saveOrUpdate($request);
     }
+
+    function deleteAPI(Request $request)
+    {
+        return $this->userModel->deleteByIds($request->ids);
+    }
 }

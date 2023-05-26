@@ -21,19 +21,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::controller(MovieController::class)->group(function () {
-    Route::get('/admin/movies', "listPage")->name("movies");
-    Route::get('/admin/movies/{id}/edit', "editPage");
-    Route::get('/admin/movies-edit', "editPage")->name("movies-edit");
-});
-
-Route::controller(CategoryController::class)->group(function () {
-    Route::get('admin/categories', "listPage")->name("categories");
-    Route::get('admin/categories/{id}/edit', "editPage");
-    Route::get('admin/categories/edit', "editPage")->name("categories-edit");
-});
-
 Route::get('/home', function () {
     return view('home');
 })->name('home');
@@ -61,7 +48,20 @@ Route::get('/register', function () {
 Route::get('/user', function () {
     return view('user');
 })->name('user');
+
+
 // Admin routes 
+Route::controller(MovieController::class)->group(function () {
+    Route::get('/admin/movies', "listPage")->name("movies");
+    Route::get('/admin/movies/{id}/edit', "editPage");
+    Route::get('/admin/movies-edit', "editPage")->name("movies-edit");
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('admin/categories', "listPage")->name("categories");
+    Route::get('admin/categories/{id}/edit', "editPage");
+    Route::get('admin/categories/edit', "editPage")->name("categories-edit");
+});
 
 Route::controller(GenresController::class)->group(function () {
     Route::get('admin/genreses', [GenresController::class, "listPage"])->name("genreses");
@@ -88,4 +88,3 @@ Route::controller(RoleController::class)->group(function () {
 });
 
 Route::get('images/{image}', [IOFileController::class, "renderImage"])->name('get-image');
-Route::get('movies',[ClientMovieController::class, 'getMovieByCategoryId']);

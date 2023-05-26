@@ -56,4 +56,9 @@ class GenresController extends Controller
         $category = $request->only(["name"]);
         return $this->genresModel->saveOrUpdate((object) $category);
     }
+
+    function deleteAPI(Request $request)
+    {
+        return $this->genresModel->deleteByIds($request->ids);
+    }
 }

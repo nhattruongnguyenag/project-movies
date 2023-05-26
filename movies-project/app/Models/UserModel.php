@@ -53,5 +53,9 @@ class UserModel extends Model
     function deleteByIds($ids)
     {
         self::destroy($ids);
+
+        return response([
+            "msg" => "Xoa thanh cong"
+        ], 200);
     }
 }

@@ -3,27 +3,23 @@
         <h1 class="section-title"><span>Phim 2020</span></h1>
     </div>
     <div class="halim_box">
-        @foreach ($movies as $data)
-            <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
-                <div class="halim-item">
-                    <a class="halim-thumb" href="{{ route('detail') }}" title="VŨNG LẦY PHẦN 1">
-                        <figure><img class="lazy img-responsive"
-                                src="{{ $data['image'] }}"
-                                alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                        <span class="status">5/5</span><span class="episode"><i class="fa fa-play"
-                                aria-hidden="true"></i>{{  $data['type']  }}</span>
-                        <div class="icon_overlay"></div>
-                        <div class="halim-post-title-box">
-                            <div class="halim-post-title ">
-                                <p class="entry-title">VŨNG LẦY PHẦN 1</p>
-                                <p class="original_title">The Mire Season 1</p>
-                            </div>
+        <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
+            <div class="halim-item">
+                <a class="halim-thumb" href="{{ route('detail') }}" title="VŨNG LẦY PHẦN 1">
+                    <figure><img class="lazy img-responsive" src="hh" alt="VŨNG LẦY PHẦN 1"
+                            title="VŨNG LẦY PHẦN 1"></figure>
+                    <span class="status">5/5</span><span class="episode"><i class="fa fa-play"
+                            aria-hidden="true"></i>hh</span>
+                    <div class="icon_overlay"></div>
+                    <div class="halim-post-title-box">
+                        <div class="halim-post-title ">
+                            <p class="entry-title">VŨNG LẦY PHẦN 1</p>
+                            <p class="original_title">The Mire Season 1</p>
                         </div>
-                    </a>
-                </div>
-            </article>
-        @endforeach
-
+                    </div>
+                </a>
+            </div>
+        </article>
     </div>
 
     @include('modules.pagination')

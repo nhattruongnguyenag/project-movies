@@ -56,4 +56,9 @@ class RoleController extends Controller
         $category = $request->only(["name", "code"]);
         return $this->roleModel->saveOrUpdate((object) $category);
     }
+
+    function deleteAPI(Request $request)
+    {
+        return $this->roleModel->deleteByIds($request->ids);
+    }
 }

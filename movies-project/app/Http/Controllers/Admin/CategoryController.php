@@ -56,4 +56,9 @@ class CategoryController extends Controller
         $category = $request->only(["name"]);
         return $this->categoryModel->saveOrUpdate((object) $category);
     }
+
+    function deleteAPI(Request $request)
+    {
+        return $this->categoryModel->deleteByIds($request->ids);
+    }
 }

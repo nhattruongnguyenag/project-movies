@@ -9,7 +9,7 @@
                     <span><i class="glyphicon-plus"></i></span>
                 </a>
             </div>
-            <button class="DTTT_button btn btn-white btn-primary  btn-bold" title="" tabindex="0"
+            <button id="btnDeleteAll" class="DTTT_button btn btn-white btn-primary  btn-bold" title="" tabindex="0"
                 aria-controls="dynamic-table" data-original-title="Print view" id="btnDeleteBuilding">
                 <span><i class="ace-icon fa fa-trash-o"></i></span>
             </button>
