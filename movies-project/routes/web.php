@@ -6,8 +6,12 @@ use App\Http\Controllers\Admin\GenresController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IOFileController;
 use App\Http\Controllers\MovieController as ClientMovieController;
+use App\Http\Controllers\UserDetailController;
+use App\Http\Controllers\WatchMovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,21 +25,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/home', [HomeController::class , 'init'] );
 
-Route::get('/category', function () {
-    return view('category');
-})->name('category');
+Route::get('/category', [CategoryController::class , 'init']);
 
-Route::get('/detail', function () {
-    return view('detail');
-})->name('detail');
+Route::get('/detail', [DetailController::class , 'init']);
 
-Route::get('/watch', function () {
-    return view('watch');
-})->name('watch');
+Route::get('/watch', [WatchMovieController::class , 'init']);
 
 Route::get('/login', function () {
     return view('login');
@@ -45,9 +41,7 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/user', function () {
-    return view('user');
-})->name('user');
+Route::get('/user', [UserDetailController::class , 'init']);
 
 
 // Admin routes 
