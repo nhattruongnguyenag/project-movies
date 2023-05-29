@@ -76,8 +76,11 @@
             </div><!-- /.page-content -->
         </div>
     </div>
-    @php
-        $APIRoute = 'api-movies';
-        $WebRoute = 'movies';
-    @endphp
+    <script src="{{ asset('admin/assets/js/crud-utils.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/deleteWidget.js') }}"></script>
+    <script>
+        let apiURL = "{{ route($APIRoute) }}"
+        let responseURL = "{{ route($WebRoute) }}"
+        deleleRequest(apiURL, responseURL)
+    </script>
 @endsection
