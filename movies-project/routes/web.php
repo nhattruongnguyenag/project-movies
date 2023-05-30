@@ -29,7 +29,7 @@ Route::get('/home', [HomeController::class , 'init'] )->name('home');
 
 Route::get('/category', [ClientCategoryController::class , 'init'])->name('category');
 
-Route::get('/detail', [DetailController::class , 'init'])->name('detail');
+Route::get('/detail/{id}', [DetailController::class , 'init']);
 
 Route::get('/watch', [WatchMovieController::class , 'init'])->name('watch');
 

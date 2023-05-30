@@ -2,22 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MovieResource;
+use App\Models\MovieModel;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
-    function init()
+    function init(Request $request)
     {
-        //demo
-        $moduel = $this->module1();
-        return view('deail', [
-            'moduel' => $moduel
+        //get movie by id
+        $id = $request->id;
+        $movie = $this->getMovieDetailById($id);
+        if($movie == null){
+            return view('404');
+        }
+        return view('detail', [
+            'movie' => new MovieResource($movie)
         ]);
     }
 
     //demo 
-    function module1()
+    function getMovieDetailById($id)
     {
-        return "";
+        $result = MovieModel::find($id);
+        return $result;
     }
 }

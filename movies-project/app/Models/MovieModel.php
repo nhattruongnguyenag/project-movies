@@ -29,7 +29,7 @@ class MovieModel extends Model
         return self::orderBy($orderBy, $orderName)->paginate($offset);
     }
 
-    function findById($id)
+    public function findById($id)
     {
         return self::find($id);
     }
