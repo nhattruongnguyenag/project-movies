@@ -10,7 +10,7 @@ class DetailController extends Controller
     {
         //demo
         $moduel = $this->module1();
-        return view('deail', [
+        return view('detail', [
             'moduel' => $moduel
         ]);
     }
