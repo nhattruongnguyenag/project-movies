@@ -29,7 +29,7 @@
                 </div>
              </div>
              <div class="user_area">
-                <a href="#"> <i class="bi bi-person-fill"></i></a>
+                <a href=" {{ route('user') }}"> <i class="bi bi-person-fill"></i></a>
              </div>
           </div>
        </div>

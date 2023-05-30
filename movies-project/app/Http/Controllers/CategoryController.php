@@ -10,7 +10,7 @@ class CategoryController extends Controller
     {
         //demo
         $moduel = $this->module1();
-        return view('home', [
+        return view('category', [
             'moduel' => $moduel
         ]);
     }

@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IOFileController;
-use App\Http\Controllers\MovieController as ClientMovieController;
+use App\Http\Controllers\CategoryController as ClientCategoryController;
 use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\WatchMovieController;
 use Illuminate\Support\Facades\Route;
@@ -25,13 +25,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [HomeController::class , 'init'] );
+Route::get('/home', [HomeController::class , 'init'] )->name('home');
 
-Route::get('/category', [CategoryController::class , 'init']);
+Route::get('/category', [ClientCategoryController::class , 'init'])->name('category');
 
-Route::get('/detail', [DetailController::class , 'init']);
+Route::get('/detail', [DetailController::class , 'init'])->name('detail');
 
-Route::get('/watch', [WatchMovieController::class , 'init']);
+Route::get('/watch', [WatchMovieController::class , 'init'])->name('watch');
 
 Route::get('/login', function () {
     return view('login');
@@ -41,7 +41,7 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/user', [UserDetailController::class , 'init']);
+Route::get('/user', [UserDetailController::class , 'init'])->name('user');
 
 
 // Admin routes 

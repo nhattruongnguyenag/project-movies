@@ -10,7 +10,7 @@ class WatchMovieController extends Controller
     {
         //demo
         $moduel = $this->module1();
-        return view('home', [
+        return view('watch', [
             'moduel' => $moduel
         ]);
     }
