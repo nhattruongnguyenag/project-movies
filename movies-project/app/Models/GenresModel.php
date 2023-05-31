@@ -48,4 +48,9 @@ class GenresModel extends Model
             "msg" => "Xoa thanh cong"
         ], 200);
     }
+
+    function movies()
+    {
+        return $this->belongsToMany(MovieModel::class, "genreses_movies", "genres_id", "movie_id");
+    }
 }

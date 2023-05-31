@@ -15,6 +15,7 @@ class MovieResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'abc' => $this->name,
             'name' => $this->name,
             'status' => $this->status,
             'director' => $this->director,
@@ -27,8 +28,7 @@ class MovieResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image,
             'view_count' => $this->view_count,
-            'episodes' => $this->episodes(),
-            'type' => count($this->episodes()) != 0 ? $this->episodes()->first()->type : "none"
+            'episodes' => $this->episodes()
         ];
     }
 }

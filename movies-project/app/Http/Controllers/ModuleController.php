@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ModuleController extends Controller
 {
-    private static $COUNT_RELATED_MOVIE = 6;
+    private static $COUNT_RELATED_MOVIE = 15;
 
     //get movie by id
     static function getMovieDetailById($id)
@@ -19,10 +19,10 @@ class ModuleController extends Controller
     //get related movie ny movie id
     static function getRelatedMovieById($id)
     {
-        $conditions = ['country', 'publish_year', 'category', 'genres'];
+        $conditions = ['country', 'publish_year', 'category_id', 'genres'];
         $random = random_int(0, count($conditions) - 1);
         $movie = MovieModel::find($id);
-        $result = '';
+        $result = [];
         foreach ($conditions as $i => $condition) {
             if ($random == $i) {
                 switch ($condition) {
@@ -32,11 +32,16 @@ class ModuleController extends Controller
                     case 'publish_year':
                         $result = MovieModel::where($condition, '=', $movie->publish_year)->where('id','!=',$movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
                         break;
-                    case 'category':
-                        var_dump(2);
+                    case 'category_id':
+                        $result = MovieModel::where($condition, '=', $movie->category_id)->where('id','!=',$movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
                         break;
                     case 'genres':
-                        var_dump(3);
+                        $genresList = $movie->genreses()->get();
+                        foreach ($genresList as $genres) {
+                            foreach ($genres->movies()->get() as $movie) {
+                                array_push($result , $movie);
+                            }
+                        }
                         break;
                 }
             }

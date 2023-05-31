@@ -18,7 +18,7 @@ class DetailController extends Controller
             return view('404');
         }
         $movieResource = new MovieResource($movie);
-        return $movieResource;
+        $type = $movieResource->episodes()[0]->type;
 
         //get related movies by id
         $relatedMovie = ModuleController::getRelatedMovieById($id);
@@ -32,6 +32,7 @@ class DetailController extends Controller
 
         return view('detail', [
             'movie' => $movieResource,
+            'type' => $type,
             'relatedMovies' => $relatedMovie
         ]);
     }

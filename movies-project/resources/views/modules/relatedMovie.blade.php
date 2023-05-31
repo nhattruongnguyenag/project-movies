@@ -26,7 +26,6 @@
                     </article>
                 @endforeach
             @endif
-
         </div>
         <script>
             jQuery(document).ready(function($) {
