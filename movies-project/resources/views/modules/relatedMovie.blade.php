@@ -94,7 +94,6 @@
                     </a>
                 </div>
             </article>
-
         </div>
         <script>
             jQuery(document).ready(function($) {
