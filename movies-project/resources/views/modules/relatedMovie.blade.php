@@ -4,96 +4,28 @@
             <h3 class="section-title"><span>CÓ THỂ BẠN MUỐN XEM</span></h3>
         </div>
         <div id="halim_related_movies-2" class="owl-carousel owl-theme related-film">
-            <article class="thumb grid-item post-38498">
-                <div class="halim-item">
-                    <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
-                        <figure><img class="lazy img-responsive"
-                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-w860_-tiHFI/YO7DW5hwmNI/AAAAAAAAJqg/yFXRsVIh70oslGUKU4Fg3NxipcmCiPt3ACLcBGAsYHQ/s320/unnamed.jpg"
-                                alt="Đại Thánh Vô Song" title="Đại Thánh Vô Song"></figure>
-                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
-                                aria-hidden="true"></i>Vietsub</span>
-                        <div class="icon_overlay"></div>
-                        <div class="halim-post-title-box">
-                            <div class="halim-post-title ">
-                                <p class="entry-title">Đại Thánh Vô Song</p>
-                                <p class="original_title">Monkey King: The One And Only</p>
-                            </div>
+            @if (isset($relatedMovies))
+                @foreach ($relatedMovies as $movie)
+                    <article class="thumb grid-item post-38498">
+                        <div class="halim-item">
+                            <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
+                                <figure><img class="lazy img-responsive"
+                                        src="{{ asset(`storage/app/photos/$movie->image`) }}"
+                                        alt="{{ $movie->name }}" title="{{ $movie->name }}"></figure>
+                                <span class="status">HD</span><span class="episode"><i class="fa fa-play"
+                                        aria-hidden="true"></i>{{ $movie->type }}</span>
+                                <div class="icon_overlay"></div>
+                                <div class="halim-post-title-box">
+                                    <div class="halim-post-title ">
+                                        <p class="entry-title">{{ $movie->name }}</p>
+                                        <p class="original_title">{{ $movie->name }}</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-            </article>
-            <article class="thumb grid-item post-38498">
-                <div class="halim-item">
-                    <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
-                        <figure><img class="lazy img-responsive"
-                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-w860_-tiHFI/YO7DW5hwmNI/AAAAAAAAJqg/yFXRsVIh70oslGUKU4Fg3NxipcmCiPt3ACLcBGAsYHQ/s320/unnamed.jpg"
-                                alt="Đại Thánh Vô Song" title="Đại Thánh Vô Song"></figure>
-                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
-                                aria-hidden="true"></i>Vietsub</span>
-                        <div class="icon_overlay"></div>
-                        <div class="halim-post-title-box">
-                            <div class="halim-post-title ">
-                                <p class="entry-title">Đại Thánh Vô Song</p>
-                                <p class="original_title">Monkey King: The One And Only</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-            <article class="thumb grid-item post-38498">
-                <div class="halim-item">
-                    <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
-                        <figure><img class="lazy img-responsive"
-                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-w860_-tiHFI/YO7DW5hwmNI/AAAAAAAAJqg/yFXRsVIh70oslGUKU4Fg3NxipcmCiPt3ACLcBGAsYHQ/s320/unnamed.jpg"
-                                alt="Đại Thánh Vô Song" title="Đại Thánh Vô Song"></figure>
-                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
-                                aria-hidden="true"></i>Vietsub</span>
-                        <div class="icon_overlay"></div>
-                        <div class="halim-post-title-box">
-                            <div class="halim-post-title ">
-                                <p class="entry-title">Đại Thánh Vô Song</p>
-                                <p class="original_title">Monkey King: The One And Only</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-            <article class="thumb grid-item post-38498">
-                <div class="halim-item">
-                    <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
-                        <figure><img class="lazy img-responsive"
-                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-w860_-tiHFI/YO7DW5hwmNI/AAAAAAAAJqg/yFXRsVIh70oslGUKU4Fg3NxipcmCiPt3ACLcBGAsYHQ/s320/unnamed.jpg"
-                                alt="Đại Thánh Vô Song" title="Đại Thánh Vô Song"></figure>
-                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
-                                aria-hidden="true"></i>Vietsub</span>
-                        <div class="icon_overlay"></div>
-                        <div class="halim-post-title-box">
-                            <div class="halim-post-title ">
-                                <p class="entry-title">Đại Thánh Vô Song</p>
-                                <p class="original_title">Monkey King: The One And Only</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-            <article class="thumb grid-item post-38498">
-                <div class="halim-item">
-                    <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
-                        <figure><img class="lazy img-responsive"
-                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-w860_-tiHFI/YO7DW5hwmNI/AAAAAAAAJqg/yFXRsVIh70oslGUKU4Fg3NxipcmCiPt3ACLcBGAsYHQ/s320/unnamed.jpg"
-                                alt="Đại Thánh Vô Song" title="Đại Thánh Vô Song"></figure>
-                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
-                                aria-hidden="true"></i>Vietsub</span>
-                        <div class="icon_overlay"></div>
-                        <div class="halim-post-title-box">
-                            <div class="halim-post-title ">
-                                <p class="entry-title">Đại Thánh Vô Song</p>
-                                <p class="original_title">Monkey King: The One And Only</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
+                    </article>
+                @endforeach
+            @endif
         </div>
         <script>
             jQuery(document).ready(function($) {

@@ -26,7 +26,7 @@
                         {{ $movie->name }}</h1>
                     <ul class="list-info-group">
                         <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">HD</span><span
-                                class="episode">Vietsub</span></li>
+                                class="episode">{{ $type }}</span></li>
                         <li class="list-info-group-item"><span>Điểm IMDb</span> : <span class="imdb">7.2</span></li>
                         <li class="list-info-group-item"><span>Thời lượng</span> : {{ $movie->duration }}</li>
                         <li class="list-info-group-item"><span>Thể loại</span> :

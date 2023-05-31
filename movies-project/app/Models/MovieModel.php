@@ -74,14 +74,8 @@ class MovieModel extends Model
         ], 200);
     }
 
-    function type($movie)
+    function episodes()
     {
-        $temp = EpisodeModel::where('move_id', $movie->id)->first();
-        if (isset($temp->type)) {
-            $movie->type = $temp->type;
-        } else {
-            $movie->type = "";
-        }
-        return $movie;
+        return $this->hasMany(EpisodeModel::class , 'move_id' , 'id')->get();
     }
 }
