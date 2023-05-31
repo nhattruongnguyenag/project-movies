@@ -19,9 +19,9 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <div class="yoast_breadcrumb hidden-xs"><span><span><a href="danhmuc.php">Phim hay</a> »
-                                        <span><a href="danhmuc.php">Mỹ</a> » <span class="breadcrumb_last"
-                                                aria-current="page">GÓA PHỤ ĐEN</span></span></span></span></div>
+                            <div class="yoast_breadcrumb hidden-xs"><span><span><a href="danhmuc.php">{{ $movie->category->name }}</a> »
+                                        <span><a href="danhmuc.php">{{ $movie->country}}</a> » <span class="breadcrumb_last"
+                                                aria-current="page">{{ $movie->name}}</span></span></span></span></div>
                         </div>
                     </div>
                 </div>

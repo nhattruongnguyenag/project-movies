@@ -13,7 +13,7 @@
         <div id="halim-advanced-widget-4-ajax-box" class="halim_box">
             <article class="col-md-2 col-sm-4 col-xs-6 thumb grid-item post-38424">
                 <div class="halim-item">
-                    <a class="halim-thumb" href="{{ route('detail') }}" title="GÓA PHỤ ĐEN">
+                    <a class="halim-thumb" href="" title="GÓA PHỤ ĐEN">
                         <figure><img class="lazy img-responsive"
                                 src="https://lumiere-a.akamaihd.net/v1/images/p_blackwidow_disneyplus_21043-1_63f71aa0.jpeg"
                                 alt="GÓA PHỤ ĐEN" title="GÓA PHỤ ĐEN"></figure>
