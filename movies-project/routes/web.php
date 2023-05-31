@@ -10,6 +10,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IOFileController;
 use App\Http\Controllers\CategoryController as ClientCategoryController;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\WatchMovieController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,8 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/user', [UserDetailController::class , 'init'])->name('user');
+
+Route::get('/test' , [ModuleController::class , 'getRelatedMovieById']);
 
 
 // Admin routes 

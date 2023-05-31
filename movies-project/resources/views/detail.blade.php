@@ -19,8 +19,8 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <div class="yoast_breadcrumb hidden-xs"><span><span><a href="danhmuc.php">{{ $movie->category->name }}</a> »
-                                        <span><a href="danhmuc.php">{{ $movie->country}}</a> » <span class="breadcrumb_last"
+                            <div class="yoast_breadcrumb hidden-xs"><span><span><a href="#">{{ $movie->category->name ?? "None" }}</a> »
+                                        <span><a href="#">{{ $movie->country}}</a> » <span class="breadcrumb_last"
                                                 aria-current="page">{{ $movie->name}}</span></span></span></span></div>
                         </div>
                     </div>

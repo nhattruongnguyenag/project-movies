@@ -21,12 +21,14 @@ class MovieResource extends JsonResource
             'actor' => $this->actor,
             'country' => $this->country,
             'genreses' => $this->genreses()->get(),
-            'category' => $this->category()->first(),
+            'category' => $this->category() != null ? $this->category()->first():"none",
             'publish_year' => $this->publish_year,
             'duration' => $this->duration,
             'description' => $this->description,
             'image' => $this->image,
-            "view_count" => $this->view_count
+            'view_count' => $this->view_count,
+            'episodes' => $this->episodes(),
+            'type' => count($this->episodes()) != 0 ? $this->episodes()->first()->type : "none"
         ];
     }
 }
