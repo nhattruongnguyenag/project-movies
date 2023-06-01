@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoryModel;
 use App\Models\MovieModel;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class ModuleController extends Controller
 {
@@ -47,5 +51,38 @@ class ModuleController extends Controller
             }
         }
         return $result;
+    }
+
+    // lấy phim thông qua categori_id
+    static function getMovieByCategory($id) {
+        $category = CategoryModel::find($id);
+        if ( isset($category)){
+            $category = $category->movies();
+        }
+        return $category;
+    }
+
+    static function getAllCategory()
+    {
+        $categories = CategoryModel::all();
+        foreach ($categories as $category) {
+            $category->movies = $category->movies();
+        }
+        return $categories;
+    }
+
+    static function checkLogin($request){
+        $user = UserModel::where('email', '=', $request['email'])->first();
+        if($user){
+            $passwordDecrypt = Crypt::decrypt($user->password);
+            if($passwordDecrypt == $request['password']){
+                return $user->id;
+            }
+            else{
+                return 'Password is wrong';
+            }
+        }else{
+            return 'Email is not isset';
+        }
     }
 }

@@ -6,18 +6,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    function init()
+    function init(Request $request)
     {
+        $id = $request->id;
         //demo
-        $moduel = $this->module1();
+        $movies = ModuleController::getMovieByCategory($id);
         return view('category', [
-            'moduel' => $moduel
+            'movies' => $movies
         ]);
-    }
-
-    //demo 
-    function module1()
-    {
-        return "";
     }
 }

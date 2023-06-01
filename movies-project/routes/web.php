@@ -12,6 +12,7 @@ use App\Http\Controllers\IOFileController;
 use App\Http\Controllers\CategoryController as ClientCategoryController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\UserDetailController;
+use App\Http\Controllers\UserProccessController;
 use App\Http\Controllers\WatchMovieController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [HomeController::class , 'init'] )->name('home');
 
-Route::get('/category', [ClientCategoryController::class , 'init'])->name('category');
+Route::get('/category/{id}', [ClientCategoryController::class , 'init'])->name('category');
 
 Route::get('/detail', [DetailController::class , 'init']);
 
@@ -41,6 +42,9 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 })->name('register');
+
+Route::post('/login-proccess', [UserProccessController::class , 'login'])->name('login-proccess');
+Route::get('/logout', [UserProccessController::class , 'logout'])->name('logout');
 
 Route::get('/user', [UserDetailController::class , 'init'])->name('user');
 

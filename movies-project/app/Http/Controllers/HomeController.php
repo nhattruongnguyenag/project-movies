@@ -9,15 +9,9 @@ class HomeController extends Controller
     function init()
     {
         //demo
-        $moduel = $this->module1();
+        $categories = ModuleController::getAllCategory();
         return view('home', [
-            'moduel' => $moduel
+            'categories' => $categories
         ]);
-    }
-
-    //demo 
-    function module1()
-    {
-        return "";
     }
 }
