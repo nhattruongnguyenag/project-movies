@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryModel;
 use App\Models\MovieModel;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class ModuleController extends Controller
 {
@@ -66,5 +68,18 @@ class ModuleController extends Controller
             $category->movies = $category->movies();
         }
         return $categories;
+    }
+
+    static function checkLogin($request){
+        $user = UserModel::where('email', '=', $request['email'])->where('password', '=', self::enCryptPassword($request['password']));
+        dd($user->password);
+    }
+
+    static function enCryptPassword($password){
+        return Crypt::encryptString($password);
+    }
+
+    static function deCryptPassword($password){
+        return Crypt::decryptString($password);
     }
 }

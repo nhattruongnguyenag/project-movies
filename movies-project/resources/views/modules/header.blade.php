@@ -25,6 +25,8 @@
                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <li><a class="dropdown-item" href="#">Phim vừa xem</a></li>
                       <li><a class="dropdown-item" href="#">Phim đã thích</a></li>
+                      <li><a class="dropdown-item" href="{{ route('login') }}">Dang Nhap</a></li>
+                      <li><a class="dropdown-item" href="#">Dang Xuat</a></li>
                    </ul>
                 </div>
              </div>
