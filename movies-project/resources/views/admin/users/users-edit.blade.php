@@ -112,7 +112,7 @@ $usersAPIRoute = "api-users";
             'id': id.value,
             'username': username.value,
             'email': email.value,
-            'status': status.value,
+            'status': status == null ? 1 : status.value,
             'roles': rolesArray,
         };
     }
