@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
 class UserModel extends Model
@@ -35,11 +36,11 @@ class UserModel extends Model
             $user = $this->findById($requestObject->id);
             $user->roles()->detach();
             $user->status = $requestObject->status;
-            $user->password = Hash::make($requestObject->password);
+            $user->password = Crypt::encrypt($requestObject->password);
         } else {
             $user = new UserModel();
             $user->status = self::ACTIVE_STATUS;
-            $user->password = Hash::make(self::DEFAULT_PASSWORD);
+            $user->password = Crypt::encrypt(self::DEFAULT_PASSWORD);
             $user->username  = $requestObject->username;
             $user->email = $requestObject->email;
         }

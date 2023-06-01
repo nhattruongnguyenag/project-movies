@@ -7,6 +7,7 @@ use App\Models\MovieModel;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class ModuleController extends Controller
 {
@@ -71,15 +72,17 @@ class ModuleController extends Controller
     }
 
     static function checkLogin($request){
-        $user = UserModel::where('email', '=', $request['email'])->where('password', '=', self::enCryptPassword($request['password']));
-        dd($user->password);
-    }
-
-    static function enCryptPassword($password){
-        return Crypt::encryptString($password);
-    }
-
-    static function deCryptPassword($password){
-        return Crypt::decryptString($password);
+        $user = UserModel::where('email', '=', $request['email'])->first();
+        if($user){
+            $passwordDecrypt = Crypt::decrypt($user->password);
+            if($passwordDecrypt == $request['password']){
+                return $user->id;
+            }
+            else{
+                return 'Password is wrong';
+            }
+        }else{
+            return 'Email is not isset';
+        }
     }
 }

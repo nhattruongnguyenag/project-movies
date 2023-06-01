@@ -5,8 +5,8 @@
             </li>
             <li class="mega"><a title="Phim Mới" href="#">Phim Mới</a></li>
             <li class="mega dropdown">
-                <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle"
-                    aria-haspopup="true" disabled>Năm <span class="caret"></span></a>
+                <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
+                    disabled>Năm <span class="caret"></span></a>
                 <ul role="menu" class=" dropdown-menu">
                     <li><a title="Phim 2020" href="#">Phim 2020</a></li>
                     <li><a title="Năm 2019" href="#">Năm 2019</a></li>
@@ -14,8 +14,8 @@
                 </ul>
             </li>
             <li class="mega dropdown">
-                <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle"
-                    aria-haspopup="true" disabled>Thể Loại <span class="caret"></span></a>
+                <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
+                    disabled>Thể Loại <span class="caret"></span></a>
                 <ul role="menu" class=" dropdown-menu">
                     <li><a title="Tâm Lý" href="#">Tâm Lý</a></li>
                     <li><a title="Hành động" href="#">Hành động</a></li>
@@ -26,8 +26,8 @@
                 </ul>
             </li>
             <li class="mega dropdown">
-                <a title="Quốc Gia" href="#" data-toggle="dropdown" class="dropdown-toggle"
-                    aria-haspopup="true" disabled>Quốc Gia <span class="caret"></span></a>
+                <a title="Quốc Gia" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
+                    disabled>Quốc Gia <span class="caret"></span></a>
                 <ul role="menu" class=" dropdown-menu">
                     <li><a title="Việt nam" href="#">Việt nam</a></li>
                     <li><a title="Ấn Độ" href="#">Ấn Độ</a></li>
@@ -41,5 +41,10 @@
     </div>
     <ul class="nav navbar-nav navbar-left" style="background:#000;">
         <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-left" style="background:#000;">
+        @if (Session::get('user'))
+            <li class="disabled"><a href="#" style="color: #ffed4d;">{{ Session::get('user')->username }}</a></li>
+        @endIf
     </ul>
 </div>
