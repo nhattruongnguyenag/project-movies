@@ -1,11 +1,11 @@
 <section>
     <div class="section-bar clearfix">
-        <h1 class="section-title"><span>Phim 2020</span></h1>
+        <h1 class="section-title"><span>Phim lẻ</span></h1>
     </div>
     <div class="halim_box">
         <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
             <div class="halim-item">
-                <a class="halim-thumb" href="{{ route('detail') }}" title="VŨNG LẦY PHẦN 1">
+                <a class="halim-thumb" href="#" title="VŨNG LẦY PHẦN 1">
                     <figure><img class="lazy img-responsive" src="hh" alt="VŨNG LẦY PHẦN 1"
                             title="VŨNG LẦY PHẦN 1"></figure>
                     <span class="status">5/5</span><span class="episode"><i class="fa fa-play"
@@ -21,6 +21,5 @@
             </div>
         </article>
     </div>
-
     @include('modules.pagination')
 </section>

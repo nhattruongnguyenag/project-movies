@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoryModel;
 use App\Models\MovieModel;
 use Illuminate\Http\Request;
 
@@ -47,5 +48,23 @@ class ModuleController extends Controller
             }
         }
         return $result;
+    }
+
+    // lấy phim thông qua categori_id
+    static function getMovieByCategory($id) {
+        $category = CategoryModel::find($id);
+        if ( isset($category)){
+            $category = $category->movies();
+        }
+        return $category;
+    }
+
+    static function getAllCategory()
+    {
+        $categories = CategoryModel::all();
+        foreach ($categories as $category) {
+            $category->movies = $category->movies();
+        }
+        return $categories;
     }
 }

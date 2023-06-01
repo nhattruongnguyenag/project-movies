@@ -50,4 +50,8 @@ class CategoryModel extends Model
             "msg" => "Xoa thanh cong"
         ], 200);
     }
+
+    function movies() {
+        return $this->hasMany(MovieModel::class , 'category_id' , 'id')->get();
+    }
 }

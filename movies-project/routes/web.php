@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [HomeController::class , 'init'] )->name('home');
 
-Route::get('/category', [ClientCategoryController::class , 'init'])->name('category');
+Route::get('/category/{id}', [ClientCategoryController::class , 'init'])->name('category');
 
 Route::get('/detail', [DetailController::class , 'init']);
 
