@@ -26,8 +26,9 @@ $usersAPIRoute = "api-users";
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email</label>
                             <div class="col-sm-9">
-                                <input type="email" id="email" name="email" value="{{$user != null ? $user->email : ''}}"
-                                    placeholder="Nhập email" class="col-xs-12 col-sm-8">
+                                <input type="email" id="email" name="email"
+                                    value="{{$user != null ? $user->email : ''}}" placeholder="Nhập email"
+                                    class="col-xs-12 col-sm-8">
                             </div>
                         </div>
 
@@ -112,7 +113,7 @@ $usersAPIRoute = "api-users";
             'id': id.value,
             'username': username.value,
             'email': email.value,
-            'status': status.value,
+            'status': status == null ? 1 : status.value,
             'roles': rolesArray,
         };
     }

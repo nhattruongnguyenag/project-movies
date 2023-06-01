@@ -20,22 +20,34 @@
                                     <div class="mb-5">
                                         <h1 style="font-weight: bold; color: #fff;">Đăng Nhập</h1>
                                     </div>
-                                    <form>
+                                    <form action="{{ route('login-proccess') }}" method="post">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="exampleInputEmail1" style="color: #fff;">Địa Chỉ Email</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Nhập email">
+                                                placeholder="Nhập email" name="email">
+                                            <div id="emailHelp" class="form-text text-danger">
+                                                {{ Session::get('errorEmail') ?? '' }}</div>
                                         </div>
                                         <div class="form-group mb-5">
                                             <label for="exampleInputPassword1" style="color: #fff;">Mật Khẩu</label>
                                             <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Nhập mật khẩu">
+                                                placeholder="Nhập mật khẩu" name="password">
+                                            <div id="emailHelp" class="form-text text-danger">
+                                                {{ Session::get('errorPass') ?? '' }}</div>
                                         </div>
                                         <button type="submit" class="btn"
                                             style="background: #e46565; color: #fff;">Đăng
                                             nhập</button>
+                                        @if (Session::get('success'))
+                                            <div id="emailHelp" class="form-text text-success">
+                                                {{ Session::get('success') ?? '' }}</div>
+                                        @endIf
+                                        <div id="emailHelp" class="form-text text-danger">
+                                            {{ Session::get('error') ?? '' }}</div>
+
                                         <p class="text-muted text-center mt-3 mb-0">Chưa có tài khoản? <a
-                                                href="register.html" class="text-primary ml-1">Đăng ký</a></p>
+                                                href="{{ route('register') }}" class="text-primary ml-1">Đăng ký</a></p>
                                     </form>
                                 </div>
                             </div>

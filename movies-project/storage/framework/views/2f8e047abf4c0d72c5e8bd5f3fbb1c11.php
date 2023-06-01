@@ -27,8 +27,6 @@
             <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
 
                 <?php echo $__env->make('modules.listTypeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php echo $__env->make('modules.listTypeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php echo $__env->make('modules.listTypeFilm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                 <div class="clearfix"></div>
             </main>
