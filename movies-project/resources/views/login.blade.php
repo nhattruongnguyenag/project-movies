@@ -39,10 +39,15 @@
                                         <button type="submit" class="btn"
                                             style="background: #e46565; color: #fff;">Đăng
                                             nhập</button>
+                                        @if (Session::get('success'))
+                                            <div id="emailHelp" class="form-text text-success">
+                                                {{ Session::get('success') ?? '' }}</div>
+                                        @endIf
                                         <div id="emailHelp" class="form-text text-danger">
                                             {{ Session::get('error') ?? '' }}</div>
+
                                         <p class="text-muted text-center mt-3 mb-0">Chưa có tài khoản? <a
-                                                href="register.html" class="text-primary ml-1">Đăng ký</a></p>
+                                                href="{{ route('register') }}" class="text-primary ml-1">Đăng ký</a></p>
                                     </form>
                                 </div>
                             </div>
