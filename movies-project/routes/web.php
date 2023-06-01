@@ -45,6 +45,7 @@ Route::get('/register', function () {
 
 Route::post('/login-proccess', [UserProccessController::class , 'login'])->name('login-proccess');
 Route::get('/logout', [UserProccessController::class , 'logout'])->name('logout');
+Route::post('/register-proccess', [UserProccessController::class , 'register'])->name('register-proccess');
 
 Route::get('/user', [UserDetailController::class , 'init'])->name('user');
 

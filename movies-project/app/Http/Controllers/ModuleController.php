@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 class ModuleController extends Controller
 {
     private static $COUNT_RELATED_MOVIE = 15;
+    private static $REGISTER_ROLE = [2];
+    private static $ACTIVE_STATUS = "active";
 
     //get movie by id
     static function getMovieDetailById($id)
@@ -31,19 +33,19 @@ class ModuleController extends Controller
             if ($random == $i) {
                 switch ($condition) {
                     case 'country':
-                        $result = MovieModel::where($condition, '=', $movie->country)->where('id','!=',$movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
+                        $result = MovieModel::where($condition, '=', $movie->country)->where('id', '!=', $movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
                         break;
                     case 'publish_year':
-                        $result = MovieModel::where($condition, '=', $movie->publish_year)->where('id','!=',$movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
+                        $result = MovieModel::where($condition, '=', $movie->publish_year)->where('id', '!=', $movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
                         break;
                     case 'category_id':
-                        $result = MovieModel::where($condition, '=', $movie->category_id)->where('id','!=',$movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
+                        $result = MovieModel::where($condition, '=', $movie->category_id)->where('id', '!=', $movie->id)->limit(self::$COUNT_RELATED_MOVIE)->get();
                         break;
                     case 'genres':
                         $genresList = $movie->genreses()->get();
                         foreach ($genresList as $genres) {
                             foreach ($genres->movies()->get() as $movie) {
-                                array_push($result , $movie);
+                                array_push($result, $movie);
                             }
                         }
                         break;
@@ -54,9 +56,10 @@ class ModuleController extends Controller
     }
 
     // lấy phim thông qua categori_id
-    static function getMovieByCategory($id) {
+    static function getMovieByCategory($id)
+    {
         $category = CategoryModel::find($id);
-        if ( isset($category)){
+        if (isset($category)) {
             $category = $category->movies();
         }
         return $category;
@@ -71,18 +74,33 @@ class ModuleController extends Controller
         return $categories;
     }
 
-    static function checkLogin($request){
+    //check login
+    static function checkLogin($request)
+    {
         $user = UserModel::where('email', '=', $request['email'])->first();
-        if($user){
+        if ($user) {
             $passwordDecrypt = Crypt::decrypt($user->password);
-            if($passwordDecrypt == $request['password']){
+            if ($passwordDecrypt == $request['password']) {
                 return $user->id;
-            }
-            else{
+            } else {
                 return 'Password is wrong';
             }
-        }else{
+        } else {
             return 'Email is not isset';
         }
+    }
+
+    //register user
+    static function register($request)
+    {
+        $user = new UserModel();
+        $user->status = self::$ACTIVE_STATUS;
+        $user->password =  Crypt::encrypt($request['password']);
+        $user->username  = $request['username'];
+        $user->email = $request['email'];
+
+        $user->save();
+        $user->roles()->attach(self::$REGISTER_ROLE);
+        return $user;
     }
 }
