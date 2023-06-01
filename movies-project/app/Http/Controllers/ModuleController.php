@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoryModel;
+use App\Models\LikeModel;
 use App\Models\MovieModel;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
@@ -43,6 +44,7 @@ class ModuleController extends Controller
                         break;
                     case 'genres':
                         $genresList = $movie->genreses()->get();
+
                         foreach ($genresList as $genres) {
                             foreach ($genres->movies()->get() as $movie) {
                                 array_push($result, $movie);
@@ -102,5 +104,24 @@ class ModuleController extends Controller
         $user->save();
         $user->roles()->attach(self::$REGISTER_ROLE);
         return $user;
+    }
+
+    //like movie
+    static function likeMovie(Request $request)
+    {
+        $movieId = $request->movie_id;
+        $movie = MovieModel::find($movieId);
+        if (isset($movie) && isset($request->user_id)) {
+            $like = LikeModel::where('user_id', '=', $request->user_id)->where('movie_id', '=', $movie->id)->first();
+            if (isset($like->user_id)) {
+                return $like->delete();
+            } else {
+                $like = new LikeModel();
+                $like->user_id = $request->user_id;
+                $like->movie_id = $movie->id;
+                $like->save();
+                return $like;
+            }
+        }
     }
 }

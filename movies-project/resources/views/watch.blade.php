@@ -42,5 +42,4 @@
     @include('modules.footer')
     @include('assets.link_js');
 </body>
-
 </html>

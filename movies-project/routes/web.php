@@ -48,6 +48,9 @@ Route::get('/logout', [UserProccessController::class , 'logout'])->name('logout'
 Route::post('/register-proccess', [UserProccessController::class , 'register'])->name('register-proccess');
 Route::get('/user', [UserDetailController::class , 'init'])->name('user');
 
+Route::get('/404', function () {
+    return view('404');
+})->name('404');
 
 // Admin routes 
 Route::controller(MovieController::class)->group(function () {

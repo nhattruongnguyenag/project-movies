@@ -21,7 +21,6 @@
                 <div id="toggle-light"><i class="bi bi-lightbulb-off"></i>
                     Light Off
                 </div>
-                <div id="report" class="halim-switch"><i class="bi bi-exclamation-triangle"></i> Report</div>
                 <div class="luotxem"><i class="bi bi-eye"></i>
                     <span>1K</span> lượt xem
                 </div>
@@ -87,3 +86,4 @@
 </section>
 
 @include('modules.relatedMovie')
+
