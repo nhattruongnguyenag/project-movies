@@ -86,4 +86,5 @@
 </section>
 
 @include('modules.relatedMovie')
+@include('modules.comment')
 
