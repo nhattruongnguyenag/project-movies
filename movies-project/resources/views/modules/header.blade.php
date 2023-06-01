@@ -31,7 +31,7 @@
                             @endIf
                             @if (!Session::get('user'))
                                 <li><a class="dropdown-item" href="{{ route('login') }}">Dang Nhap</a></li>
-                                <li><a class="dropdown-item" href="#">Dang Ky</a></li>
+                                <li><a class="dropdown-item" href="{{ route('register') }}">Dang Ky</a></li>
                             @endIf
                             @if (Session::get('user'))
                                 <li><a class="dropdown-item" href="{{ route('logout') }}">Dang Xuat</a></li>
