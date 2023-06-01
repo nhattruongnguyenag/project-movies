@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\IOFileController;
+use App\Http\Controllers\ModuleController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(GenresController::class)->group(function () {
@@ -46,3 +47,4 @@ Route::controller(RoleController::class)->group(function () {
 });
 
 Route::post('upload-image', [IOFileController::class, "uploadImage"])->name('upload-image');
+Route::post('like' , [ModuleController::class , "likeMovie"]);
