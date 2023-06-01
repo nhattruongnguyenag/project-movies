@@ -33,7 +33,7 @@ Route::get('/category/{id}', [ClientCategoryController::class , 'init'])->name('
 
 Route::get('/detail', [DetailController::class , 'init']);
 
-Route::get('/watch', [WatchMovieController::class , 'init'])->name('watch');
+Route::get('/watch', [WatchMovieController::class , 'init']);
 
 Route::get('/login', function () {
     return view('login');
@@ -46,10 +46,7 @@ Route::get('/register', function () {
 Route::post('/login-proccess', [UserProccessController::class , 'login'])->name('login-proccess');
 Route::get('/logout', [UserProccessController::class , 'logout'])->name('logout');
 Route::post('/register-proccess', [UserProccessController::class , 'register'])->name('register-proccess');
-
 Route::get('/user', [UserDetailController::class , 'init'])->name('user');
-
-Route::get('/test' , [ModuleController::class , 'getRelatedMovieById']);
 
 
 // Admin routes 

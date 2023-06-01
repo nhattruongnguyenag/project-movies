@@ -76,6 +76,6 @@ class MovieModel extends Model
 
     function episodes()
     {
-        return $this->hasMany(EpisodeModel::class , 'move_id' , 'id')->get();
+        return $this->hasMany(EpisodeModel::class , 'move_id' , 'id')->orderBy('episode', 'ASC')->get();
     }
 }

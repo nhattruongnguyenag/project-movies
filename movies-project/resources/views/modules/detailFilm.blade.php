@@ -15,8 +15,8 @@
                         alt="{{ $movie->name }}">
                     <div class="bwa-content">
                         <div class="loader"></div>
-                        <a href="xemphim.php" class="bwac-btn">
-                            <i class="fa fa-play"></i>
+                        <a href="http://127.0.0.1:8000/watch?id={{$movie->id}}&episode={{$movie->episodes()[0]->episode}}" class="bwac-btn">
+                            <i class="bi bi-play" style="top: 0 ; left: 12px"></i>
                         </a>
                     </div>
                 </div>
