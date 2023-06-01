@@ -11,7 +11,7 @@
             </div>
             <div class="movie_info col-xs-12">
                 <div class="movie-poster col-md-3">
-                    <img class="movie-thumb" src="{{ asset(`storage/app/photos/$movie->image`) }}"
+                    <img class="movie-thumb" src="{{ url( 'images/' . $movie->image) }}"
                         alt="{{ $movie->name }}">
                     <div class="bwa-content">
                         <div class="loader"></div>

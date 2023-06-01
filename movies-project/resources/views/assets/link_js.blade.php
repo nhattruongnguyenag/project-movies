@@ -28,7 +28,7 @@
     const likeIcon = document.querySelector('#like');
     const report = document.querySelector('#report');
     const url = 'http://127.0.0.1:8000/api/like';
-    let data = {'user_id' : "{{ Session::get('user')->id }}" , 'movie_id' : "{{ $movie->id }}"};
+    let data = {'user_id' : "{{ Session::get('user')->id ?? 0 }}" , 'movie_id' : "{{ $movie->id ?? 0}}"};
     report.addEventListener("click", () => {
         if (likeIcon.classList.contains("bi-hand-thumbs-up")) {
             likeIcon.classList.replace("bi-hand-thumbs-up", "bi-hand-thumbs-up-fill");
