@@ -18,7 +18,7 @@ class DetailController extends Controller
             return view('404');
         }
         $movieResource = new MovieResource($movie);
-        $type = $movieResource->episodes()[0]->type;
+        $type = isset($movieResource->episodes()[0]) ? $movieResource->episodes()[0]->type: "none";
 
         //get related movies by id
         $relatedMovie = ModuleController::getRelatedMovieById($id);

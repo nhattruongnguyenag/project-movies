@@ -8,12 +8,12 @@
                 @foreach ($relatedMovies as $movie)
                     <article class="thumb grid-item post-38498">
                         <div class="halim-item">
-                            <a class="halim-thumb" href="chitiet.php" title="Đại Thánh Vô Song">
+                            <a class="halim-thumb" href="http://127.0.0.1:8000/detail?id={{$movie->id}}" title="Đại Thánh Vô Song">
                                 <figure><img class="lazy img-responsive"
                                         src="{{ asset(`storage/app/photos/$movie->image`) }}"
                                         alt="{{ $movie->name }}" title="{{ $movie->name }}"></figure>
-                                <span class="status">HD</span><span class="episode"><i class="fa fa-play"
-                                        aria-hidden="true"></i>{{ $movie->type }}</span>
+                                <span class="status">HD</span><span class="episode"><i class="bi bi-play"></i>
+                                    {{ $movie->type }}</span>
                                 <div class="icon_overlay"></div>
                                 <div class="halim-post-title-box">
                                     <div class="halim-post-title ">
@@ -37,8 +37,8 @@
                     autoplayTimeout: 4000,
                     autoplayHoverPause: true,
                     nav: true,
-                    navText: ['<i class="hl-down-open rotate-left"></i>',
-                        '<i class="hl-down-open rotate-right"></i>'
+                    navText: ['<i class="bi bi-arrow-left"></i>',
+                        '<i class="bi bi-arrow-right"></i>'
                     ],
                     responsiveClass: true,
                     responsive: {
