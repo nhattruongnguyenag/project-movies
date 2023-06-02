@@ -34,13 +34,13 @@ use App\Http\Controllers\NotifyController;
 |
 */
 
-Route::get('/home', [HomeController::class , 'init'] )->name('home');
+Route::get('/home', [HomeController::class, 'init'])->name('home');
 
-Route::get('/category/{id}', [ClientCategoryController::class , 'init'])->name('category');
+Route::get('/category/{id}', [ClientCategoryController::class, 'init'])->name('category');
 
-Route::get('/detail', [DetailController::class , 'init']);
+Route::get('/detail', [DetailController::class, 'init']);
 
-Route::get('/watch', [WatchMovieController::class , 'init'])->name('watch');
+Route::get('/watch', [WatchMovieController::class, 'init'])->name('watch');
 
 Route::get('/login', function () {
     return view('login');
@@ -50,12 +50,12 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::post('/login-proccess', [UserProccessController::class , 'login'])->name('login-proccess');
-Route::get('/logout', [UserProccessController::class , 'logout'])->name('logout');
+Route::post('/login-proccess', [UserProccessController::class, 'login'])->name('login-proccess');
+Route::get('/logout', [UserProccessController::class, 'logout'])->name('logout');
 
-Route::get('/user', [UserDetailController::class , 'init'])->name('user');
+Route::get('/user', [UserDetailController::class, 'init'])->name('user');
 
-Route::get('/test' , [ModuleController::class , 'getRelatedMovieById']);
+Route::get('/test', [ModuleController::class, 'getRelatedMovieById']);
 
 
 // Admin routes 
@@ -116,18 +116,22 @@ Route::post('/movie/searchMovies', [ModuleController::class, "getMovieBySearch"]
 //Go to blog page
 //--------------------------------------Blog---------------------------
 Route::get('/watch/blog', [BlogController::class, 'init'])->name('watchBlog');
-Route::get('/form/create/blog',[BlogController::class,'formBlog'])->name('formCreateBlog');
+Route::get('/form/create/blog', [BlogController::class, 'formBlog'])->name('formCreateBlog');
 Route::post('create/blog', [ModuleController::class, 'createBlog'])->name('createBlog');
 Route::get('/read/blog', [BlogDetailController::class, 'init'])->name('readBlog');
-Route::post('edit/blog',[ModuleController::class,'editBlog'])->name('editBlog');
-Route::post('delete/blog',[ModuleController::class,'deleteBlog'])->name('deleteBlog');
+Route::post('edit/blog', [BlogController::class, 'editBlog'])->name('editBlog');
+Route::post('delete/blog', [ModuleController::class, 'deleteBlog'])->name('deleteBlog');
 //---------------------------------------Movie manager analyst-------------------------
 Route::get('/film/filter', [filmFilterController::class, 'init'])->name('filmFilter');
 Route::get('/film/filter/activity', [filmFilterController::class, "initResult"])->name('filmFilterActivity');
-Route::get('/search', [SearchResultController::class, 'init'])->name('search');
 //---------------------------------------Notify-------------------------
-Route::get('notify',[NotifyController::class, 'init'])->name('notify');
-Route::post('notify/delete',[ModuleController::class, 'deleteNotify'])->name('deleteNotify');
-Route::get('404',function(){ return view('404');})->name('404');
+Route::get('notify', [NotifyController::class, 'init'])->name('notify');
+Route::post('notify/delete', [ModuleController::class, 'deleteNotify'])->name('deleteNotify');
+Route::get('404', function () {
+    return view('404');
+})->name('404');
 //---------------------------------------User-----------------------------
-Route::get('user/get',[UserDetailController::class, "init"])->name('getUser');
+Route::get('user/get', [UserDetailController::class, "init"])->name('getUser');
+//---------------------------------------Search-------------------------------------//
+Route::get('/search', [SearchResultController::class, 'init'])->name('search');
+Route::post('search/activity', [SearchResultController::class, 'searchAjax'])->name('searchActivity');

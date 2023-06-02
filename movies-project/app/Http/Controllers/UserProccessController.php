@@ -22,10 +22,16 @@ class UserProccessController extends Controller
         if (UserModel::find(ModuleController::checkLogin($request->all()))) {
             $user = UserModel::find(ModuleController::checkLogin($request->all()));
             $request->session()->put('user', $user);
+            $this->countAccess($user->id);
             return redirect()->route('home');
         } else {
             return redirect()->route('login')->with(['error' => ModuleController::checkLogin($request->all())]);
         }
+    }
+
+    function countAccess($id)
+    {
+        UserModel::where('id', '=', $id)->increment('count_access');
     }
 
     function logout(Request $request)

@@ -26,8 +26,6 @@ class filmFilterController extends Controller
     {
         $value = ModuleController::filmFilterActivity($request);
         $notify = ModuleController::goNotify();
-        // var_dump($value);
-        // die();
         if (isset($value['value'])) {
             return view('filmFilter', [
                 'value' => $value['value'], 'genres' => $value['genres'],

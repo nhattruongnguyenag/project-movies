@@ -18,4 +18,10 @@ class SearchResultController extends Controller
             ]
         );
     }
+
+    public function searchAjax(Request $request)
+    {
+        $movies = ModuleController::searchMovie($request->name);
+        return $movies;
+    }
 }

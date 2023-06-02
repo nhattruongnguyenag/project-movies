@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\IOFileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\controllers\SearchResultController;
 
 Route::controller(GenresController::class)->group(function () {
     Route::post('genreses', "saveAPI")->name("api-genreses");

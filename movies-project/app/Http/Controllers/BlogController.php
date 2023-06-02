@@ -29,4 +29,10 @@ class BlogController extends Controller
         $notify = ModuleController::goNotify();
         return view('areaCreateBlog',['notify'=>$notify]);
     }
+    public function editBlog(Request $request)
+    {
+        $notify = ModuleController::goNotify();
+        $result = ModuleController::editBlog($request);
+        return view('areaCreateBlog', ['blog' => $result, 'notify'=>$notify]);
+    }
 }

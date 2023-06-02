@@ -89,6 +89,7 @@ class ModuleController extends Controller
         }
     }
 
+
     //-------------------Blog area-------------------------//
     //Chu Dinh Hanh
     //Create Blog
@@ -109,10 +110,10 @@ class ModuleController extends Controller
         }
     }
     //Edit blog
-    public function editBlog(Request $request)
+    static function editBlog(Request $request)
     {
         $result = BlogModel::editBlog($request);
-        return view('areaCreateBlog', ['blog' => $result]);
+        return $result;
     }
     //----------------------------Movie area-------------------//
     //Lay top view nhieu nhat tu truoc den nay!
