@@ -7,7 +7,6 @@
 
 <body>
     @include('modules.header')
-    @include('modules.navigation')
 
     <div id="login" class="container">
         <div class="row justify-content-center">

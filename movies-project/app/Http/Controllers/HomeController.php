@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     function init()
     {
-        //demo
+        //get categories
         $categories = ModuleController::getAllCategory();
 
         //get years

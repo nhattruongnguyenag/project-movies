@@ -29,11 +29,26 @@ class DetailController extends Controller
             $movie->type = count($movie->episodes()) != 0 ? $movie->episodes()->first()->type : "none";
         }
         
+        //get categories
+        $categories = ModuleController::getAllCategory();
+
+        //get years
+        $years = ModuleController::getYears();
+
+        //get genreses
+        $genreses = ModuleController::getGenreses();
+
+        //get countries
+        $countries = ModuleController::getCountries();
 
         return view('detail', [
             'movie' => $movieResource,
             'type' => $type,
-            'relatedMovies' => $relatedMovie
+            'relatedMovies' => $relatedMovie,
+            'categories' => $categories,
+            'years' => $years,
+            'genreses' => $genreses,
+            'countries' => $countries
         ]);
     }
 }

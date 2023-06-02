@@ -8,16 +8,23 @@ class UserDetailController extends Controller
 {
     function init()
     {
-        //demo
-        $moduel = $this->module1();
-        return view('user', [
-            'moduel' => $moduel
-        ]);
-    }
+        //get categories
+        $categories = ModuleController::getAllCategory();
 
-    //demo 
-    function module1()
-    {
-        return "";
+        //get years
+        $years = ModuleController::getYears();
+
+        //get genreses
+        $genreses = ModuleController::getGenreses();
+
+        //get countries
+        $countries = ModuleController::getCountries();
+
+        return view('user', [
+            'categories' => $categories,
+            'years' => $years,
+            'genreses' => $genreses,
+            'countries' => $countries
+        ]);
     }
 }
