@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 02, 2023 at 04:18 PM
--- Server version: 8.0.31
--- PHP Version: 8.2.0
+-- Generation Time: Jun 02, 2023 at 06:44 PM
+-- Server version: 8.0.16
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_movies3`
+-- Database: `project_movies`
 --
 
 -- --------------------------------------------------------
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `blogs`;
 CREATE TABLE IF NOT EXISTS `blogs` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int NOT NULL,
+  `user_id` int(11) NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `view_count` int NOT NULL DEFAULT '0',
+  `view_count` int(11) NOT NULL DEFAULT '0',
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
   `time_create` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_BlogUser` (`user_id`)
@@ -52,7 +52,7 @@ INSERT INTO `blogs` (`id`, `content`, `user_id`, `image`, `view_count`, `title`,
 (35, '<p>In Laravel, you can use the <code>trim()</code> function to remove leading and trailing whitespace from a string. Laravel provides a convenient way to use this function through the <code>Str</code> facade.</p>\r\n\r\n<p>To use the <code>trim()</code> function in Laravel, follow these steps:</p>\r\n\r\n<ol>\r\n	<li>Import the <code>Str</code> facade at the top of your PHP file:x</li>\r\n</ol>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>use Illuminate\\Support\\Str; </code></p>\r\n\r\n<ol>\r\n	<li>Now you can use the <code>trim()</code> function from the <code>Str</code> facade to trim a string:</li>\r\n</ol>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$trimmedString = Str::trim($string); </code></p>\r\n\r\n<p>In the example above, <code>$string</code> is the string you want to trim, and <code>$trimmedString</code> will store the trimmed version of the string.</p>\r\n\r\n<p>The <code>Str::trim()</code> function can handle both single strings and arrays of strings. If you pass an array of strings to <code>Str::trim()</code>, it will trim each string in the array.</p>\r\n\r\n<p>Here&#39;s an example with an array of strings:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$strings = [&#39; Hello &#39;, &#39; World &#39;]; $trimmedStrings = Str::trim($strings); // Result: [&#39;Hello&#39;, &#39;World&#39;] </code></p>\r\n\r\n<p>In the example above, the <code>Str::trim()</code> function trims the leading and trailing whitespace from each string in the array <code>$strings</code> and returns an array of trimmed strings in <code>$trimmedStrings</code>.</p>\r\n\r\n<p>By using the <code>Str::trim()</code> function, you can easily remove leading and trailing whitespace from strings in Laravel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e\" /><img alt=\"User\" src=\"https://chat.openai.com/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2Fe2f060d87e205399da666dcfd4b56dc1%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fwt.png&amp;w=96&amp;q=75\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>cach su dung ham trim()</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>ChatGPT</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>H&agrave;m <code>trim()</code> trong PHP được sử dụng để loại bỏ khoảng trắng ở đầu v&agrave; cuối chuỗi. Dưới đ&acirc;y l&agrave; c&aacute;ch sử dụng h&agrave;m <code>trim()</code>:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$string = &quot; Hello, World! &quot;; $trimmedString = trim($string); echo $trimmedString; </code></p>\r\n\r\n<p>Kết quả sẽ l&agrave;: &quot;Hello, World!&quot; (chuỗi đ&atilde; được loại bỏ khoảng trắng ở đầu v&agrave; cuối).</p>\r\n\r\n<p>H&agrave;m <code>trim()</code> cũng c&oacute; thể được sử dụng để loại bỏ c&aacute;c k&yacute; tự kh&aacute;c ngo&agrave;i khoảng trắng từ đầu v&agrave; cuối chuỗi. Bạn c&oacute; thể chỉ định c&aacute;c k&yacute; tự cần loại bỏ bằng c&aacute;ch truyền tham số thứ hai cho h&agrave;m <code>trim()</code>:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$string = &quot;*-*Hello, World!*-*&quot;; $trimmedString = trim($string, &#39;*-&#39;); echo $trimmedString; </code></p>\r\n\r\n<p>Kết quả sẽ l&agrave;: &quot;Hello, World!&quot; (chuỗi đ&atilde; được loại bỏ c&aacute;c k&yacute; tự &#39;*&#39; v&agrave; &#39;-&#39; ở đầu v&agrave; cuối).</p>\r\n\r\n<p>Ngo&agrave;i ra, h&agrave;m <code>trim()</code> cũng c&oacute; thể được sử dụng để loại bỏ khoảng trắng từ một mảng chuỗi:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$strings = [&quot; Hello &quot;, &quot; World! &quot;]; $trimmedStrings = array_map(&#39;trim&#39;, $strings); print_r($trimmedStrings); </code></p>\r\n\r\n<p>Kết quả sẽ l&agrave;:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>csharpCopy code</p>\r\n\r\n<p><code>Array ( [0] =&gt; Hello [1] =&gt; World! )</code></p>', 3, '1685370788.png', 0, '<p><em>cach su dung ham trim()vgvghadkwabdjawh</em></p>\r\n\r\n<p><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></p>\r\n\r\n<p>ădawdawdawdaw<img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/img/audio.png\" /></p>\r\n\r\n<p>vgvgh</p>', 0, '2023-05-29'),
 (47, '<p>C&acirc;u chuyện l&agrave; những trang nhật k&yacute; về cuộc sống thường ng&agrave;y v&agrave; t&acirc;m tư của cậu b&eacute; Thiều. Thiều đang l&agrave; học sinh lớp 7 sống ở một v&ugrave;ng qu&ecirc; ngh&egrave;o, c&ugrave;ng với người em trai t&ecirc;n Tường. Tường l&agrave; một cậu b&eacute; dễ thương, hiền l&agrave;nh, bao dung, rất y&ecirc;u mến anh trai v&agrave; th&iacute;ch chơi đ&ugrave;a với nhiều lo&agrave;i động vật gồm cả s&acirc;u bọ, rắn rết. Cậu b&eacute; sống nội t&acirc;m, ham đọc s&aacute;ch v&agrave; rất say m&ecirc; những c&acirc;u&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Chuy%E1%BB%87n_c%E1%BB%95_t%C3%ADch\">chuyện cổ t&iacute;ch</a>, đặc biệt l&agrave; truyện&nbsp;<em>C&oacute;c t&iacute;a</em>, ch&iacute;nh v&igrave; vậy m&agrave; cậu nu&ocirc;i nấng một con&nbsp;<a href=\"https://vi.wikipedia.org/wiki/C%C3%B3c\">c&oacute;c</a>&nbsp;dưới gầm giường v&agrave; đặt t&ecirc;n cho n&oacute; l&agrave; &quot;Cu Cậu&quot;. Trong khi đ&oacute; Thiều vốn l&agrave; một người hướng ngoại, kh&aacute; tinh qu&aacute;i, đ&atilde; nhiều lần v&ocirc; t&igrave;nh để em m&igrave;nh chịu tai bay vạ gi&oacute; sau những tr&ograve; nghịch ph&aacute; do ch&iacute;nh m&igrave;nh b&agrave;y ra. Thiều cũng rất nhiều lần tỏ ra hẹp h&ograve;i, nhưng trong th&acirc;m t&acirc;m cậu vẫn rất thương em m&igrave;nh v&agrave; l&agrave; một người h&agrave;o hiệp. Hai anh em Thiều v&agrave; Tường thả hồn v&agrave;o những tr&ograve; chơi cảm gi&aacute;c mạnh v&agrave; nhiều kỷ niệm đ&aacute;ng nhớ thời thơ ấu của những đứa trẻ l&agrave;ng qu&ecirc;. Truyện cũng mở rộng ra mối quan hệ giữa hai anh em v&agrave; những người d&acirc;n trong ng&ocirc;i l&agrave;ng, gồm cả người th&acirc;n của m&igrave;nh v&agrave; những bạn học c&ugrave;ng lớp. Ba của Thiều được mi&ecirc;u tả l&agrave; một người giảo hoạt v&agrave; được d&acirc;n l&agrave;ng y&ecirc;u mến nhưng hay nổi n&oacute;ng v&agrave; thường xuy&ecirc;n đ&aacute;nh đ&ograve;n hai anh em v&igrave; nhiều l&yacute; do, trong khi mẹ cậu tỏ ra dịu d&agrave;ng với c&aacute;c con hơn d&ugrave; b&agrave; cũng kh&ocirc;ng tr&aacute;nh khỏi việc tr&aacute;ch mắng khi c&aacute;c con l&agrave;m điều sai quấy.</p>\r\n\r\n<p>Ch&uacute; Đ&agrave;n l&agrave; em trai của ba Thiều, bị mất một tay do tai nạn nhưng vẫn lu&ocirc;n y&ecirc;u đời v&agrave; thường kể chuyện ma cho hai anh em Thiều v&agrave; Tường nghe. Tuy bị cụt mất một tay nhưng ch&uacute; Đ&agrave;n lại chơi đ&agrave;n ắc - m&ocirc; - ni - ca rất hay. Nỗi muộn phiền duy nhất của ch&uacute; c&oacute; lẽ nằm ở chuyện t&igrave;nh nhiều trắc trở do c&aacute;nh tay cụt g&acirc;y ra. Ch&uacute; Đ&agrave;n y&ecirc;u chị Vinh, một c&ocirc; g&aacute;i c&ugrave;ng x&oacute;m v&agrave; l&agrave; con của thầy Nh&atilde;n, thầy gi&aacute;o chủ nhiệm lớp của Thiều, người thầy m&agrave; l&uacute;c n&agrave;o cũng l&agrave;m cho Thiều sợ chết khiếp. V&agrave;o l&uacute;c mở đầu c&acirc;u chuyện, Thiều cảm thấy th&iacute;ch một c&ocirc; bạn c&ugrave;ng lớp ngồi kế b&ecirc;n cậu t&ecirc;n l&agrave; Xin. Xin hay bị Thiều tr&ecirc;u chọc v&agrave; từng c&oacute; lần v&ocirc; t&igrave;nh l&agrave;m cho Thiều bẽ mặt trước lớp. Một bạn học kh&aacute;c của Thiều l&agrave; Sơn, lớn hơn cậu ba tuổi nhưng học lực rất yếu v&agrave; phải ở lại lớp li&ecirc;n tục 3 năm liền. Sơn được mi&ecirc;u tả l&agrave; một đứa du c&ocirc;n, suốt ng&agrave;y ph&aacute; l&agrave;ng ph&aacute; x&oacute;m v&agrave; c&oacute; những cử chỉ v&agrave; lời n&oacute;i khiếm nh&atilde;, th&ocirc; tục. Về sau, Thiều nhận ra m&igrave;nh đ&atilde; c&oacute; t&igrave;nh cảm với Mận, l&agrave; một c&ocirc; bạn c&ugrave;ng lớp lớn hơn cậu một tuổi. Mận xinh xắn v&agrave; ng&acirc;y thơ nhưng học kh&ocirc;ng được tốt do phải chăm s&oacute;c người cha mắc căn bệnh phong, đang bị mẹ c&ocirc; b&eacute; giam tr&ecirc;n g&aacute;c nh&agrave;. B&iacute; mật n&agrave;y chỉ c&oacute; Thiều v&agrave; Tường biết, v&agrave; hai anh em đ&atilde; phải ẩu đả với Sơn chỉ để bảo vệ Mận trước những &acirc;m mưu đen tối.</p>', 0, '1685707289.jpg', 0, '<h1><em>T&ocirc;i thấy hoa v&agrave;ng tr&ecirc;n cỏ xanh</em></h1>', 0, '2023-06-02'),
 (41, '<p>qưertyuiop</p>', 1, '1685640395.jpg', 9, '<p>son cuto</p>', 0, '2023-06-02'),
-(42, '<p>cai qq</p>', 1, '1685640498.jpg', 5, '<p>cai qq&nbsp;</p>', 0, '2023-06-02'),
+(42, '<p>cai qq</p>', 1, '1685640498.jpg', 6, '<p>cai qq&nbsp;</p>', 0, '2023-06-02'),
 (39, '<p>H&agrave;m <code>trim()</code> trong PHP được sử dụng để loại bỏ khoảng trắng ở đầu v&agrave; cuối chuỗi. Dưới đ&acirc;y l&agrave; c&aacute;ch sử dụng h&agrave;m <code>trim()</code>:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$string = &quot; Hello, World! &quot;; $trimmedString = trim($string); echo $trimmedString; </code></p>\r\n\r\n<p>Kết quả sẽ l&agrave;: &quot;Hello, World!&quot; (chuỗi đ&atilde; được loại bỏ khoảng trắng ở đầu v&agrave; cuối).</p>\r\n\r\n<p>H&agrave;m <code>trim()</code> cũng c&oacute; thể được sử dụng để loại bỏ c&aacute;c k&yacute; tự kh&aacute;c ngo&agrave;i khoảng trắng từ đầu v&agrave; cuối chuỗi. Bạn c&oacute; thể chỉ định c&aacute;c k&yacute; tự cần loại bỏ bằng c&aacute;ch truyền tham số thứ hai cho h&agrave;m <code>trim()</code>:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$string = &quot;*-*Hello, World!*-*&quot;; $trimmedString = trim($string, &#39;*-&#39;); echo $trimmedString; </code></p>\r\n\r\n<p>Kết quả sẽ l&agrave;: &quot;Hello, World!&quot; (chuỗi đ&atilde; được loại bỏ c&aacute;c k&yacute; tự &#39;*&#39; v&agrave; &#39;-&#39; ở đầu v&agrave; cuối).</p>\r\n\r\n<p>Ngo&agrave;i ra, h&agrave;m <code>trim()</code> cũng c&oacute; thể được sử dụng để loại bỏ khoảng trắng từ một mảng chuỗi:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>phpCopy code</p>\r\n\r\n<p><code>$strings = [&quot; Hello &quot;, &quot; World! &quot;]; $trimmedStrings = array_map(&#39;trim&#39;, $strings); print_r($trimmedStrings); </code></p>\r\n\r\n<p>Kết quả sẽ l&agrave;:</p>\r\n\r\n<pre>\r\n\r\n&nbsp;</pre>\r\n\r\n<p>csharpCopy code</p>\r\n\r\n<p><code>Array ( [0] =&gt; Hello [1] =&gt; World! ) </code></p>\r\n\r\n<p>Trong v&iacute; dụ tr&ecirc;n, <code>array_map(&#39;trim&#39;, $strings)</code> được sử dụng để &aacute;p dụng h&agrave;m <code>trim()</code> cho mỗi phần tử trong mảng <code>$strings</code>, v&agrave; kết quả trả về l&agrave; một mảng chứa c&aacute;c chuỗi đ&atilde; được loại bỏ khoảng trắng.</p>', 1, '1685371312.png', 5, '<p>adwdawdawdawdaw</p>', 0, '2023-05-29'),
 (51, '<p><em><strong>Ngh&igrave;n lẻ một đ&ecirc;m</strong></em>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Ti%E1%BA%BFng_%E1%BA%A2_R%E1%BA%ADp\">tiếng Ả Rập</a>:&nbsp;<em>Kitāb &#39;Alf Layla wa-Layla</em>;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Ti%E1%BA%BFng_Ba_T%C6%B0\">tiếng Ba Tư</a>:&nbsp;<em>Haz&acirc;r-o Yak &Scaron;ab</em>) l&agrave; bộ sưu tập c&aacute;c&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Truy%E1%BB%87n_d%C3%A2n_gian\">truyện d&acirc;n gian</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Trung_%C4%90%C3%B4ng\">Trung Đ&ocirc;ng</a>&nbsp;v&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Nam_%C3%81\">Nam &Aacute;</a>&nbsp;được bi&ecirc;n soạn bằng tiếng&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%E1%BA%A2_R%E1%BA%ADp\">Ả Rập</a>&nbsp;trong thời đại ho&agrave;ng kim&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%E1%BB%93i_gi%C3%A1o\">Hồi gi&aacute;o</a>. T&aacute;c phẩm n&agrave;y được sưu tập qua nhiều thế kỷ bởi nhiều t&aacute;c giả, dịch giả v&agrave; học giả khắp T&acirc;y &Aacute;,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Trung_%C3%81\">Trung &Aacute;</a>, Nam &Aacute; v&agrave; Bắc Phi. Bản th&acirc;n c&aacute;c c&acirc;u truyện được truy t&igrave;m nguồn gốc ngược về nền văn chương v&agrave; truyện kể d&acirc;n gian Ả Rập,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Ba_T%C6%B0\">Ba Tư</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/L%C6%B0%E1%BB%A1ng_H%C3%A0\">Lưỡng H&agrave;</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%E1%BA%A4n_%C4%90%E1%BB%99\">Ấn Độ</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Do_Th%C3%A1i\">Do Th&aacute;i</a><a href=\"https://vi.wikipedia.org/wiki/Ngh%C3%ACn_l%E1%BA%BB_m%E1%BB%99t_%C4%91%C3%AAm#cite_note-Marzolph2007-1\">[1]</a>&nbsp;v&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Ai_C%E1%BA%ADp\">Ai Cập</a>. Đặc biệt, nhiều truyện ban đầu l&agrave; truyện d&acirc;n gian từ thời đại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Khalifah\">Khalifah</a>, trong khi đ&oacute; một số truyện kh&aacute;c, đặc biệt l&agrave; truyện nền, phần lớn c&oacute; thể đ&atilde; được lấy từ t&aacute;c phẩm văn chương Ba Tư l&agrave;&nbsp;<em>Hazār Afsān</em>&nbsp;(<em>Một ng&agrave;n truyện</em>) m&agrave; đến lượt ch&uacute;ng lại dựa một phần v&agrave;o những yếu tố Ấn Độ.<a href=\"https://vi.wikipedia.org/wiki/Ngh%C3%ACn_l%E1%BA%BB_m%E1%BB%99t_%C4%91%C3%AAm#cite_note-2\">[2]</a></p>\r\n\r\n<p>Điểm chung của c&aacute;c lần xuất bản bộ truyện l&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Truy%E1%BB%87n_n%E1%BB%81n&amp;action=edit&amp;redlink=1\">truyện nền</a>&nbsp;ban đầu kể về vị vua&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Shahry%C4%81r&amp;action=edit&amp;redlink=1\">Shahryār</a>&nbsp;v&agrave; vợ của &ocirc;ng l&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Scheherazade\">Scheherazade</a>. Truyện nền đ&atilde; gi&uacute;p kết hợp chặt chẽ xuy&ecirc;n suốt cho ch&iacute;nh c&aacute;c truyện kể kh&aacute;c. C&aacute;c truyện kể tiến triển từ truyện kể ban đầu n&agrave;y; một số truyện kể được lồng v&agrave;o b&ecirc;n trong c&aacute;c truyện kể kh&aacute;c trong khi đ&oacute; c&oacute; một số truyện kể tự m&igrave;nh bắt đầu v&agrave; kết th&uacute;c. Một số lần xuất bản chỉ c&oacute; chứa v&agrave;i trăm đ&ecirc;m trong khi đ&oacute; c&oacute; một số lần xuất bản c&oacute; chứa đến một ngh&igrave;n lẻ một đ&ecirc;m hay nhiều hơn. Phần lớn c&aacute;c truyện kể được viết theo thể&nbsp;<a href=\"https://vi.wikipedia.org/wiki/V%C4%83n_xu%C3%B4i\">văn xu&ocirc;i</a>&nbsp;tuy đ&ocirc;i khi cũng được viết theo thể thơ d&agrave;nh cho c&aacute;c b&agrave;i h&aacute;t, c&acirc;u đố v&agrave; để diễn tả cảm x&uacute;c cao độ.</p>\r\n\r\n<p>Một số truyện kể được xem l&agrave; rất c&oacute; li&ecirc;n quan đến&nbsp;<em>Ngh&igrave;n lẻ một đ&ecirc;m</em>, đặc biệt l&agrave; &quot;<a href=\"https://vi.wikipedia.org/wiki/Aladdin_v%C3%A0_c%C3%A2y_%C4%91%C3%A8n_th%E1%BA%A7n\">Aladdin v&agrave; c&acirc;y đ&egrave;n thần</a>&quot;, &quot;<a href=\"https://vi.wikipedia.org/wiki/Ali_Baba_v%C3%A0_b%E1%BB%91n_m%C6%B0%C6%A1i_t%C3%AAn_c%C6%B0%E1%BB%9Bp\">Ali Baba v&agrave; bốn mươi t&ecirc;n cướp</a>&quot;, v&agrave; &quot;<a href=\"https://vi.wikipedia.org/wiki/Sinbad\">Thủy thủ Sinbad</a>&quot; lại kh&ocirc;ng phải l&agrave; một phần của&nbsp;<em>Ngh&igrave;n lẻ một đ&ecirc;m</em>&nbsp;trong phi&ecirc;n bản nguy&ecirc;n thủy bằng tiếng Ả Rập. Ch&uacute;ng được&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Antoine_Galland&amp;action=edit&amp;redlink=1\">Antoine Galland</a>&nbsp;v&agrave; c&aacute;c phi&ecirc;n dịch ch&acirc;u &Acirc;u đưa v&agrave;o bộ truyện.<a href=\"https://vi.wikipedia.org/wiki/Ngh%C3%ACn_l%E1%BA%BB_m%E1%BB%99t_%C4%91%C3%AAm#cite_note-3\">[3]</a></p>', 2, '1685719006.png', 0, '<h1><em>Ngh&igrave;n lẻ một đ&ecirc;m</em></h1>', 0, '2023-06-02'),
 (50, '<p>234567890-</p>', 2, '1685718929.jpg', 0, '<p>1234567890</p>', 0, '2023-06-02');
@@ -65,7 +65,7 @@ INSERT INTO `blogs` (`id`, `content`, `user_id`, `image`, `view_count`, `title`,
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -89,11 +89,11 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
-  `move_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `move_id` int(11) NOT NULL,
   `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `episode` int NOT NULL,
+  `episode` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_UserTable` (`user_id`),
   KEY `FK_MovieTable` (`move_id`)
@@ -107,10 +107,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 DROP TABLE IF EXISTS `episodes`;
 CREATE TABLE IF NOT EXISTS `episodes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `move_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `move_id` int(11) NOT NULL,
   `link` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `episode` int NOT NULL,
+  `episode` int(11) NOT NULL,
   `trailer` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -141,8 +141,10 @@ INSERT INTO `episodes` (`id`, `move_id`, `link`, `episode`, `trailer`, `type`, `
 
 DROP TABLE IF EXISTS `genreses`;
 CREATE TABLE IF NOT EXISTS `genreses` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -150,15 +152,15 @@ CREATE TABLE IF NOT EXISTS `genreses` (
 -- Dumping data for table `genreses`
 --
 
-INSERT INTO `genreses` (`id`, `title`) VALUES
-(1, 'kinh dị'),
-(2, 'tình cảm'),
-(3, 'hài hước'),
-(4, 'viễn tưởng'),
-(5, 'trinh thám'),
-(6, 'hành động'),
-(7, 'phim ma'),
-(8, 'hoạt hình');
+INSERT INTO `genreses` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'kinh dị', '2023-06-02 18:32:26', NULL),
+(2, 'tình cảm', '2023-06-02 18:32:26', NULL),
+(3, 'hài hước', '2023-06-02 18:32:26', NULL),
+(4, 'viễn tưởng', '2023-06-02 18:32:26', NULL),
+(5, 'trinh thám', '2023-06-02 18:32:26', NULL),
+(6, 'hành động', '2023-06-02 18:32:26', NULL),
+(7, 'phim ma', '2023-06-02 18:32:26', NULL),
+(8, 'hoạt hình 1', '2023-06-02 18:32:26', '2023-06-02 18:43:28');
 
 -- --------------------------------------------------------
 
@@ -168,9 +170,9 @@ INSERT INTO `genreses` (`id`, `title`) VALUES
 
 DROP TABLE IF EXISTS `genreses_movies`;
 CREATE TABLE IF NOT EXISTS `genreses_movies` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `genres_id` int NOT NULL,
-  `move_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `genres_id` int(11) NOT NULL,
+  `move_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_GenresTable` (`genres_id`),
   KEY `FK_MoviesTable` (`move_id`)
@@ -199,9 +201,9 @@ INSERT INTO `genreses_movies` (`id`, `genres_id`, `move_id`) VALUES
 
 DROP TABLE IF EXISTS `likes`;
 CREATE TABLE IF NOT EXISTS `likes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
-  `movie_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `movie_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -213,17 +215,19 @@ CREATE TABLE IF NOT EXISTS `likes` (
 
 DROP TABLE IF EXISTS `movies`;
 CREATE TABLE IF NOT EXISTS `movies` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `actor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `director` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` int NOT NULL,
+  `status` int(11) NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `category_id` int NOT NULL,
+  `category_id` int(11) NOT NULL,
   `duration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `publish_year` int DEFAULT NULL,
+  `publish_year` int(11) DEFAULT NULL,
   `country` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_CategoryMovie` (`category_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
@@ -232,23 +236,23 @@ CREATE TABLE IF NOT EXISTS `movies` (
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `movies` (`id`, `actor`, `director`, `name`, `description`, `status`, `image`, `category_id`, `duration`, `publish_year`, `country`) VALUES
-(1, 'Asta,Yami Sukehiro', 'Tabata Yūki', 'Black Clover', 'Black Clover là một loạt shōnen manga của Nhật Bản được sáng tác bởi Tabata Yūki. Loạt truyện ban đầu được đăng thường kỳ trên tạp chí Weekly Shōnen Jump từ số tháng 2 năm 2015, sau đó biên soạn thành tankōbon bởi nhà xuất bản Shueisha và hiện đã phát hành 34 tập tại Nhật Bản.', 0, 'du-doan-ngay-phat-hanh-black-clover-season-5-khi-nao-black-clover-episode-171-ra-mat.jpg', 2, '60/60', 2017, 'Japan'),
-(2, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 2', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, '1684895493.png', 0, '1h30', 2019, 'vietnam'),
-(3, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 5', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, '1684895586.png', 0, '1h30', 2023, 'campuchia'),
-(4, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 3', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'lao'),
-(5, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 6', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'usa'),
-(6, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 7', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2019, 'usa'),
-(7, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 8', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam'),
-(8, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 9', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'thailan'),
-(9, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 10', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'trungquoc'),
-(10, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 11', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'myanmar'),
-(11, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 12', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2024, 'lao'),
-(12, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 13', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam'),
-(13, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 14', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam'),
-(14, 'như hoa, văn hưng ', 'Vũ Trọng Phụng', 'Tôi thấy hoa vàng trên cỏ xanh', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam'),
-(15, 'như hoa, văn hưng ', 'Vũ Trọng Phụng', 'Thằng Bờm', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam'),
-(16, 'như hoa, văn hưng ', 'Vũ Trọng Phụng', 'Chẳng thể tìm được em', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam');
+INSERT INTO `movies` (`id`, `actor`, `director`, `name`, `description`, `status`, `image`, `category_id`, `duration`, `publish_year`, `country`, `created_at`, `updated_at`) VALUES
+(1, 'Asta,Yami Sukehiro', 'Tabata Yūki', 'Black Clover', 'Black Clover là một loạt shōnen manga của Nhật Bản được sáng tác bởi Tabata Yūki. Loạt truyện ban đầu được đăng thường kỳ trên tạp chí Weekly Shōnen Jump từ số tháng 2 năm 2015, sau đó biên soạn thành tankōbon bởi nhà xuất bản Shueisha và hiện đã phát hành 34 tập tại Nhật Bản.', 0, 'du-doan-ngay-phat-hanh-black-clover-season-5-khi-nao-black-clover-episode-171-ra-mat.jpg', 2, '60/60', 2017, 'Japan', '2023-06-02 18:31:44', NULL),
+(2, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 2', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, '1684895493.png', 0, '1h30', 2019, 'vietnam', '2023-06-02 18:31:44', NULL),
+(3, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 5', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, '1684895586.png', 0, '1h30', 2023, 'campuchia', '2023-06-02 18:31:44', NULL),
+(4, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 3', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'lao', '2023-06-02 18:31:44', NULL),
+(5, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 6', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'usa', '2023-06-02 18:31:44', NULL),
+(6, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 7', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2019, 'usa', '2023-06-02 18:31:44', NULL),
+(7, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 8', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam', '2023-06-02 18:31:44', NULL),
+(8, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 9', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'thailan', '2023-06-02 18:31:44', NULL),
+(9, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 10', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'trungquoc', '2023-06-02 18:31:44', NULL),
+(10, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 11', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'myanmar', '2023-06-02 18:31:44', NULL),
+(11, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 12', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2024, 'lao', '2023-06-02 18:31:44', NULL),
+(12, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 13', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam', '2023-06-02 18:31:44', NULL),
+(13, 'Lão Hạc , cậu vàng', 'Victor Vũ', 'Lão Hạc 14', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam', '2023-06-02 18:31:44', NULL),
+(14, 'như hoa, văn hưng ', 'Vũ Trọng Phụng', 'Tôi thấy hoa vàng trên cỏ xanh', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, 0, '1h30', 2020, 'vietnam', '2023-06-02 18:31:44', NULL),
+(15, 'như hoa, văn hưng', 'Vũ Trọng Phụng', 'Thằng Bờm', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, NULL, -1, '1h30', 2020, 'vietnam', '2023-06-02 18:31:44', '2023-06-02 18:41:24'),
+(16, 'như hoa, văn hưng', 'Vũ Trọng Phụng', 'Chẳng thể tìm được em', 'Lão Hạc là một truyện ngắn của nhà văn Nam Cao được viết vào năm 1943. Tác phẩm được đánh giá là một trong những truyện ngắn tiêu biểu của dòng văn học hiện thực, nội dung truyện đã phần nào phản ánh được hiện trạng xã hội Việt Nam trong giai đoạn trước C', 0, 'qAk9duu4ec4VzUpv5xBlvWGTh7HexM4Ecd02u46O.jpg', -1, '1h30', 2020, 'vietnam', '2023-06-02 18:31:44', '2023-06-02 18:32:55');
 
 -- --------------------------------------------------------
 
@@ -258,9 +262,9 @@ INSERT INTO `movies` (`id`, `actor`, `director`, `name`, `description`, `status`
 
 DROP TABLE IF EXISTS `movies_likes`;
 CREATE TABLE IF NOT EXISTS `movies_likes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_movie` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_movie` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -280,11 +284,11 @@ INSERT INTO `movies_likes` (`id`, `id_user`, `id_movie`) VALUES
 
 DROP TABLE IF EXISTS `notify`;
 CREATE TABLE IF NOT EXISTS `notify` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `status` int NOT NULL DEFAULT '0',
-  `user_id` int NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
@@ -303,7 +307,7 @@ INSERT INTO `notify` (`id`, `content`, `time`, `status`, `user_id`) VALUES
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -327,7 +331,7 @@ INSERT INTO `roles` (`id`, `code`, `name`, `created_at`, `updated_at`) VALUES
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -335,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `count_access` int NOT NULL DEFAULT '0',
+  `count_access` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -345,8 +349,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `status`, `created_at`, `updated_at`, `image`, `count_access`) VALUES
 (1, 'binhgold123999', 'natswarchuan@gmail.com', 'eyJpdiI6IklMVHhOWktlME9kZDJvT2JNZG94NHc9PSIsInZhbHVlIjoiK25keXlqSm5LLzRidEsvMm1wTXdmQT09IiwibWFjIjoiNmM5YmJlODBkMTlhNTdlMzU2NzAxNjFiZTY4MzU5OWI3NmVkNWIxNDQxNWEyMzZkNTkxOTdlYmI3YTc5OGVkZiIsInRhZyI6IiJ9', 'active', '2023-06-01 18:20:28', '2023-06-01 18:20:28', '', 0),
-(2, 'chudinhhanh', 'dinhh7844@gmail.com', 'eyJpdiI6InpiVUdWaVBuSnQwZ05tNDJoR2g4Mmc9PSIsInZhbHVlIjoidGRtbG9lVjJPQ09kdjlOWWpMcG9Kdz09IiwibWFjIjoiZTY1YjU0NWM4ZjVkMGU2M2U0Yzk1NDVjMGIxYzQzMzUyNGQwNTBiMDMyNjI5OGQyZTA3MjU1OTZmZTc4MTFkYyIsInRhZyI6IiJ9', 'active', '2023-06-02 07:31:43', '2023-06-02 07:31:43', '', 0),
-(6, 'hanh@1234', 'hanh@1234', 'eyJpdiI6InpYSGZDcWl5cGpVeHlCeFZyZWw1aUE9PSIsInZhbHVlIjoiUldzNnVzUjBaN2I0eGNFa3pCUkVJdz09IiwibWFjIjoiZTQwZmVmNjYyNzQwYThkMDRlMjU0MWY5ZmM3OGZiYzFiYzc1ODFlNDM0OWFjZGMyNzBhOTc0ZmY5NTM3Mzg5OCIsInRhZyI6IiJ9', 'active', '2023-06-02 07:33:11', '2023-06-02 07:33:11', '', 0);
+(2, 'chudinhhanh', 'dinhh7844@gmail.com', 'eyJpdiI6InpiVUdWaVBuSnQwZ05tNDJoR2g4Mmc9PSIsInZhbHVlIjoidGRtbG9lVjJPQ09kdjlOWWpMcG9Kdz09IiwibWFjIjoiZTY1YjU0NWM4ZjVkMGU2M2U0Yzk1NDVjMGIxYzQzMzUyNGQwNTBiMDMyNjI5OGQyZTA3MjU1OTZmZTc4MTFkYyIsInRhZyI6IiJ9', 'active', '2023-06-02 07:31:43', '2023-06-02 07:31:43', '', 0);
 
 -- --------------------------------------------------------
 
@@ -356,9 +359,9 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `status`, `created_a
 
 DROP TABLE IF EXISTS `users_movies`;
 CREATE TABLE IF NOT EXISTS `users_movies` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `movie_id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `watching_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
@@ -490,9 +493,9 @@ INSERT INTO `users_movies` (`id`, `movie_id`, `user_id`, `watching_time`) VALUES
 
 DROP TABLE IF EXISTS `users_roles`;
 CREATE TABLE IF NOT EXISTS `users_roles` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
-  `role_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_UserTable` (`user_id`),
   KEY `FK_RoleTable` (`role_id`)
