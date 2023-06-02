@@ -38,7 +38,7 @@ class WatchMovieController extends Controller
         foreach ($relatedMovie as $movie){
             $movie->type = count($movie->episodes()) != 0 ? $movie->episodes()->first()->type : "none";
         }
-        
+
 
         return view('watch', [
             'movie'=>$movieResource,
