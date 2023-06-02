@@ -44,7 +44,7 @@ $episodesAPIRoute = "api-episodes";
                             <label class="col-sm-3 control-label no-padding-right" for="link"> Đường dẫn
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="col-xs-12 col-sm-8" maxlength="50" rows="4" id="link"
+                                <textarea class="col-xs-12 col-sm-8" rows="4" id="link"
                                     name="link">{{$episode != null ? $episode->link : ''}}</textarea>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ $episodesAPIRoute = "api-episodes";
                             <label class="col-sm-3 control-label no-padding-right" for="trailer"> Trailer
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="col-xs-12 col-sm-8" maxlength="50" rows="4" id="trailer"
+                                <textarea class="col-xs-12 col-sm-8" rows="4" id="trailer"
                                     name="trailer">{{$episode != null ? $episode->link : ''}}</textarea>
                             </div>
                         </div>

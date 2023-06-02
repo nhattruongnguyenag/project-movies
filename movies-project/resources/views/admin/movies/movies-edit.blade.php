@@ -41,7 +41,7 @@ $moviesAPIRoute = "api-movies";
                             <label class="col-sm-3 control-label no-padding-right" for="actor"> Diễn viên
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="col-xs-12 col-sm-8" id="actor" name="actor" maxlength="50"
+                                <textarea class="col-xs-12 col-sm-8" id="actor" name="actor"
                                     rows="4">{{$movie != null ? $movie->actor : ''}}</textarea>
                             </div>
                         </div>
@@ -61,7 +61,7 @@ $moviesAPIRoute = "api-movies";
                             <div class="col-xs-12 col-sm-9">
                                 <select id="genreses" name="genreses" class="multiselect" multiple="true">
                                     @foreach ($genreses as $genres)
-                                    <option class="genreses" value="{{$genres->id}}">{{$genres->name}}</option>
+                                    <option class="genreses" value="{{$genres->id}}">{{$genres->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -106,7 +106,7 @@ $moviesAPIRoute = "api-movies";
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="description"> Mô tả </label>
                             <div class="col-sm-9">
-                                <textarea class="col-xs-12 col-sm-8" id="description" name="description" maxlength="50"
+                                <textarea class="col-xs-12 col-sm-8" id="description" name="description"
                                     rows="4">{{$movie != null ? $movie->description : ''}}</textarea>
                             </div>
                         </div>

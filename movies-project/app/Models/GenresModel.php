@@ -34,7 +34,7 @@ class GenresModel extends Model
             $genres = new GenresModel();
         }
 
-        $genres->name = $requestObject->name;
+        $genres->title = $requestObject->name;
         $genres->save();
 
         return response($genres, 201);

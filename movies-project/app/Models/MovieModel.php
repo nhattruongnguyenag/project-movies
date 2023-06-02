@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -77,7 +78,7 @@ class MovieModel extends Model
 
     function episodes()
     {
-        return $this->hasMany(EpisodeModel::class , 'move_id' , 'id')->orderBy('episode', 'ASC')->get();
+        return $this->hasMany(EpisodeModel::class, 'move_id', 'id')->orderBy('episode', 'ASC')->get();
     }
 
     //-----------------------Chu Dinh Hanh--------------------------//

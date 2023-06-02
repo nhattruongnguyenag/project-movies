@@ -42,7 +42,7 @@ class MovieController extends Controller
             $movie = $this->movieModel->findById($request->id);
         }
 
-        $genreses = $this->genresModel->findAll("name", "ASC");
+        $genreses = $this->genresModel->findAll("title", "ASC");
         $categories = $this->categoryModel->findAll("name", "ASC");
 
         return view("admin.movies.movies-edit", [

@@ -32,15 +32,15 @@ $genresesAPIRoute = "api-genreses";
 
                                         <div class="col-sm-6">
                                             <input type="text" name="name" id="name" placeholder="Nhập tên thể loại"
-                                                class="col-sm-12" value="{{$genres != null ? $genres->name : ''}}">
+                                                class="col-sm-12" value="{{$genres != null ? $genres->title : ''}}">
                                         </div>
 
                                         <div class="col-sm-3">
                                             <button type="button" id="submit" class="btn btn-info btn-sm">
-                                                @if(@isset($dataEdit))
-                                                <i class="ace-icon fa-pencil-square-o bigger-110"></i> Cập nhật
+                                                @if(@isset($genres))
+                                                Cập nhật
                                                 @else
-                                                <i class="ace-icon fa fa-plus bigger-110"></i> Thêm
+                                                Thêm
                                                 @endif
                                             </button>
                                         </div>
