@@ -8,16 +8,12 @@ class UserDetailController extends Controller
 {
     function init()
     {
-        //demo
-        $moduel = $this->module1();
+        $notify = ModuleController::goNotify();
+        $result = ModuleController::getUser();
         return view('user', [
-            'moduel' => $moduel
+            'user' => $result['user'], 'countMovie' => $result['countMovie'],
+            'countLike' => $result['countLike'], 'arr' => $result['arr'],
+            'notify' => $notify
         ]);
-    }
-
-    //demo 
-    function module1()
-    {
-        return "";
     }
 }

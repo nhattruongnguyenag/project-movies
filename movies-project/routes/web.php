@@ -16,6 +16,13 @@ use App\Http\Controllers\UserProccessController;
 use App\Http\Controllers\WatchMovieController;
 use Illuminate\Support\Facades\Route;
 
+// Chu Dinh Hanh
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogDetailController;
+use App\Http\Controllers\filmFilterController;
+use App\Http\Controllers\SearchResultController;
+use App\Http\Controllers\NotifyController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,3 +96,38 @@ Route::controller(RoleController::class)->group(function () {
 });
 
 Route::get('images/{image}', [IOFileController::class, "renderImage"])->name('get-image');
+
+
+
+
+//-----------------------------Chu Dinh Hanh----------------------------//
+//-------------------------------------Top view----------------------------------
+//Get a list of movies have most view every time
+Route::get('/movie/top-view-all', [ModuleController::class, "getTheMostTopViewEveryTime"])->name('getTopViewAll');
+// //Get a list of movies have most view in current month
+Route::get('/movie/top-view-month', [ModuleController::class, "getTheMostTopViewInMonth"])->name('getTopViewCurrentMonth');
+// //Get a list of movies have most view in current week
+Route::get('/movie/top-view-week', [ModuleController::class, "getTheMostTopViewInWeek"])->name('getTopViewCurrentWeek');
+//Get a list of movies have most view in current day
+Route::get('/movie/top-view-day', [ModuleController::class, "getTheMostTopViewInDay"])->name('getTopViewCurrentDay');
+//----------------------------------------Search-------------------------------
+//Search for movies have same name or correct name
+Route::post('/movie/searchMovies', [ModuleController::class, "getMovieBySearch"])->name('getMoviesByName');
+//Go to blog page
+//--------------------------------------Blog---------------------------
+Route::get('/watch/blog', [BlogController::class, 'init'])->name('watchBlog');
+Route::get('/form/create/blog',[BlogController::class,'formBlog'])->name('formCreateBlog');
+Route::post('create/blog', [ModuleController::class, 'createBlog'])->name('createBlog');
+Route::get('/read/blog', [BlogDetailController::class, 'init'])->name('readBlog');
+Route::post('edit/blog',[ModuleController::class,'editBlog'])->name('editBlog');
+Route::post('delete/blog',[ModuleController::class,'deleteBlog'])->name('deleteBlog');
+//---------------------------------------Movie manager analyst-------------------------
+Route::get('/film/filter', [filmFilterController::class, 'init'])->name('filmFilter');
+Route::get('/film/filter/activity', [filmFilterController::class, "initResult"])->name('filmFilterActivity');
+Route::get('/search', [SearchResultController::class, 'init'])->name('search');
+//---------------------------------------Notify-------------------------
+Route::get('notify',[NotifyController::class, 'init'])->name('notify');
+Route::post('notify/delete',[ModuleController::class, 'deleteNotify'])->name('deleteNotify');
+Route::get('404',function(){ return view('404');})->name('404');
+//---------------------------------------User-----------------------------
+Route::get('user/get',[UserDetailController::class, "init"])->name('getUser');

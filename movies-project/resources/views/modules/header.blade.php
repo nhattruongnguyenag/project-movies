@@ -16,8 +16,21 @@
                 </div>
             </div>
             <div class="col-md-5 hidden-xs">
-                <div id="get-bookmark" class="box-shadow"><i class="bi bi-bell-fill"></i><span> Thông báo</span><span
-                        class="count">0</span></div>
+                @if (Session()->has('user'))
+                    <a href="{{ route('notify') }}">
+                        <div id="get-bookmark" class="box-shadow"><i class="bi bi-bell-fill"></i><span> Thông
+                                báo
+                            </span><span class="count_notify"
+                                style="background: red
+                        ;padding: 1px 6px;border-radius: 50%;">
+                                @if (isset($notify))
+                                    {{ count($notify) }}
+                                @else
+                                    0
+                                @endif
+                            </span></div>
+                    </a>
+                @endif
                 <div class="wrapper_menu_utilities ">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle menu_utilities" type="button" id="dropdownMenuButton"
@@ -28,6 +41,8 @@
                             @if (Session::get('user'))
                                 <li><a class="dropdown-item" href="#">Phim vừa xem</a></li>
                                 <li><a class="dropdown-item" href="#">Phim đã thích</a></li>
+                                <li><a class="dropdown-item" href="{{ route('formCreateBlog') }}"><i
+                                            class="fa-solid fa-arrow-right-to-bracket"></i>Viết Blog</a></li>
                             @endIf
                             @if (!Session::get('user'))
                                 <li><a class="dropdown-item" href="{{ route('login') }}">Dang Nhap</a></li>
@@ -40,7 +55,9 @@
                     </div>
                 </div>
                 <div class="user_area">
-                    <a href=" {{ route('user') }}"> <i class="bi bi-person-fill"></i></a>
+                    @if (Session::get('user'))
+                        <a href=" {{ route('getUser') }}"> <i class="bi bi-person-fill"></i></a>
+                    @endIf
                 </div>
             </div>
         </div>

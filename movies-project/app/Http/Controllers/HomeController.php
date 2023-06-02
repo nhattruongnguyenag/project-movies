@@ -10,8 +10,13 @@ class HomeController extends Controller
     {
         //demo
         $categories = ModuleController::getAllCategory();
-        return view('home', [
-            'categories' => $categories
-        ]);
+        $notify = ModuleController::goNotify();
+        return view(
+            'home',
+            [
+                'categories' => $categories,
+                'notify' => $notify
+            ]
+        );
     }
 }

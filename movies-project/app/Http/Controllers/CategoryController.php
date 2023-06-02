@@ -9,10 +9,11 @@ class CategoryController extends Controller
     function init(Request $request)
     {
         $id = $request->id;
-        //demo
+        $notify = ModuleController::goNotify();
         $movies = ModuleController::getMovieByCategory($id);
         return view('category', [
-            'movies' => $movies
+            'movies' => $movies,
+            'notify' => $notify
         ]);
     }
 }

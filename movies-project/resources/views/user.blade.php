@@ -2,10 +2,11 @@
 <html lang="vi">
 
 <head>
-    @include('assets.link_css')
+    @include('assets.link_css');
 </head>
 
-<body class="post-template-default single single-post postid-38424 single-format-standard halimthemes halimmovies" data-masonry="">
+<body class="post-template-default single single-post postid-38424 single-format-standard halimthemes halimmovies"
+    data-masonry="">
     @include('modules.header')
     @include('modules.navigation')
 
@@ -23,18 +24,12 @@
                                     <div class="base_user_infor_item">
                                         <div class="name">
                                             <h6>NAME</h6>
-                                            <p>Chu Dinh Hanh</p>
+                                            <p>{{ $user->username }}</p>
                                         </div>
                                         <div class="name">
                                             <div class="wraper_layout">
                                                 <h6>Email</h6>
-                                                <p>Chu Dinh Hanh</p>
-                                            </div>
-                                        </div>
-                                        <div class="name">
-                                            <div class="wraper_layout">
-                                                <h6>AGE</h6>
-                                                <p>18</p>
+                                                <p>{{ $user->email }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -42,28 +37,21 @@
                                 <div class="achivement">
                                     <div class="wraper_layout">
                                         <h6>Số phim đã xem</h6>
-                                        <p>17</p>
+                                        <p>{{ $countMovie }}</p>
                                     </div>
                                 </div>
                                 <div class="achivement">
                                     <div class="wraper_layout">
 
                                         <h6>Số lần truy cập</h6>
-                                        <p>2</p>
+                                        <p>{{ $user->count_access }}</p>
                                     </div>
                                 </div>
                                 <div class="achivement">
                                     <div class="wraper_layout">
 
                                         <h6>Số phim đã thích</h6>
-                                        <p>2</p>
-                                    </div>
-                                </div>
-                                <div class="achivement">
-                                    <div class="wraper_layout">
-
-                                        <h6>Số lượng bình luận</h6>
-                                        <p>2</p>
+                                        <p>{{ $countLike }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +59,7 @@
                         <div class="col-md-7">
                             <div class="wrapper_right">
                                 <div class="image_area">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLT5r185t506RgYJlVthSM9Xr40d8VB4n8nQ&usqp=CAU" alt="">
+                                    <img src="{{ URL::asset('images/' . $user->image) }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -84,14 +72,16 @@
 
                             <script>
                                 const ctx = document.getElementById('myChart');
+                                const arrChart = [ {{ $arr }} ];
 
+                                console.log(arrChart);
                                 new Chart(ctx, {
                                     type: 'bar',
                                     data: {
                                         labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
                                         datasets: [{
-                                            label: '# of Số lượng phim đã xem trong năm 2023',
-                                            data: [12, 99, 3, 5, 2, 3, 0, 0, 0, 0, 0, 16],
+                                            label: '# of Số lượng bộ phim đã xem trong năm nay',
+                                            data: arrChart,
                                             borderWidth: 1
                                         }]
                                     },
@@ -116,8 +106,12 @@
                             <article class="thumb grid-item post-38494">
                                 <div class="halim-item">
                                     <a class="halim-thumb" href="chitiet.php" title="Câu Chuyện Kinh Dị Cổ Điển">
-                                        <figure><img class="lazy img-responsive" src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg" alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển"></figure>
-                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                                        <figure><img class="lazy img-responsive"
+                                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg"
+                                                alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển">
+                                        </figure>
+                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
+                                                aria-hidden="true"></i>Vietsub</span>
                                         <div class="icon_overlay"></div>
                                         <div class="halim-post-title-box">
                                             <div class="halim-post-title ">
@@ -131,8 +125,12 @@
                             <article class="thumb grid-item post-38494">
                                 <div class="halim-item">
                                     <a class="halim-thumb" href="chitiet.php" title="Câu Chuyện Kinh Dị Cổ Điển">
-                                        <figure><img class="lazy img-responsive" src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg" alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển"></figure>
-                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                                        <figure><img class="lazy img-responsive"
+                                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg"
+                                                alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển">
+                                        </figure>
+                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
+                                                aria-hidden="true"></i>Vietsub</span>
                                         <div class="icon_overlay"></div>
                                         <div class="halim-post-title-box">
                                             <div class="halim-post-title ">
@@ -146,8 +144,12 @@
                             <article class="thumb grid-item post-38494">
                                 <div class="halim-item">
                                     <a class="halim-thumb" href="chitiet.php" title="Câu Chuyện Kinh Dị Cổ Điển">
-                                        <figure><img class="lazy img-responsive" src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg" alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển"></figure>
-                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                                        <figure><img class="lazy img-responsive"
+                                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg"
+                                                alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển">
+                                        </figure>
+                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
+                                                aria-hidden="true"></i>Vietsub</span>
                                         <div class="icon_overlay"></div>
                                         <div class="halim-post-title-box">
                                             <div class="halim-post-title ">
@@ -161,8 +163,12 @@
                             <article class="thumb grid-item post-38494">
                                 <div class="halim-item">
                                     <a class="halim-thumb" href="chitiet.php" title="Câu Chuyện Kinh Dị Cổ Điển">
-                                        <figure><img class="lazy img-responsive" src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg" alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển"></figure>
-                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                                        <figure><img class="lazy img-responsive"
+                                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg"
+                                                alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển">
+                                        </figure>
+                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
+                                                aria-hidden="true"></i>Vietsub</span>
                                         <div class="icon_overlay"></div>
                                         <div class="halim-post-title-box">
                                             <div class="halim-post-title ">
@@ -176,8 +182,12 @@
                             <article class="thumb grid-item post-38494">
                                 <div class="halim-item">
                                     <a class="halim-thumb" href="chitiet.php" title="Câu Chuyện Kinh Dị Cổ Điển">
-                                        <figure><img class="lazy img-responsive" src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg" alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển"></figure>
-                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                                        <figure><img class="lazy img-responsive"
+                                                src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&refresh=604800&url=https://1.bp.blogspot.com/-Hp2tnGf-zNQ/YO68R-yZRcI/AAAAAAAAJqY/Nc9qNCLgBtcjeWjOEIrOW45H5Vvva4xNgCLcBGAsYHQ/s320/MV5BNzE1YjdmMWYtMDk5ZS00YzEzLWE4NjctYmFiZmIwNzU0MjQ5XkEyXkFqcGdeQXVyMTA3MDAxNDcw._V1_.jpg"
+                                                alt="Câu Chuyện Kinh Dị Cổ Điển" title="Câu Chuyện Kinh Dị Cổ Điển">
+                                        </figure>
+                                        <span class="status">HD</span><span class="episode"><i class="fa fa-play"
+                                                aria-hidden="true"></i>Vietsub</span>
                                         <div class="icon_overlay"></div>
                                         <div class="halim-post-title-box">
                                             <div class="halim-post-title ">
@@ -200,7 +210,9 @@
                                     autoplayTimeout: 4000,
                                     autoplayHoverPause: true,
                                     nav: true,
-                                    navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],
+                                    navText: ['<i class="hl-down-open rotate-left"></i>',
+                                        '<i class="hl-down-open rotate-right"></i>'
+                                    ],
                                     responsiveClass: true,
                                     responsive: {
                                         0: {
@@ -226,7 +238,7 @@
             @include('modules.topViews')
         </div>
     </div>
-    
+
     @include('modules.footer')
     @include('assets.link_js');
 </body>
