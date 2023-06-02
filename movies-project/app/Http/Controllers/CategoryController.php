@@ -6,18 +6,31 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    function init()
+    function init(Request $request)
     {
-        //demo
-        $moduel = $this->module1();
-        return view('category', [
-            'moduel' => $moduel
-        ]);
-    }
+        $id = $request->id;
+        $notify = ModuleController::goNotify();
+        
+        //get categories
+        $categories = ModuleController::getAllCategory();
 
-    //demo 
-    function module1()
-    {
-        return "";
+        //get years
+        $years = ModuleController::getYears();
+
+        //get genreses
+        $genreses = ModuleController::getGenreses();
+
+        //get countries
+        $countries = ModuleController::getCountries();
+
+        $movies = ModuleController::getMovieByCategory($id);
+        return view('category', [
+            'movies' => $movies,
+            'categories' => $categories,
+            'years' => $years,
+            'genreses' => $genreses,
+            'countries' => $countries,
+            'notify' => $notify
+        ]);
     }
 }

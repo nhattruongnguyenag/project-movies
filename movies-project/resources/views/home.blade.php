@@ -27,8 +27,6 @@
             <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
 
                 @include('modules.listTypeFilm')
-                @include('modules.listTypeFilm')
-                @include('modules.listTypeFilm')
 
                 <div class="clearfix"></div>
             </main>
