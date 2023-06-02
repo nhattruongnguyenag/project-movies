@@ -8,35 +8,32 @@
                 <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
                     disabled>Năm <span class="caret"></span></a>
                 <ul role="menu" class=" dropdown-menu">
-                    <li><a title="Phim 2020" href="#">Phim 2020</a></li>
-                    <li><a title="Năm 2019" href="#">Năm 2019</a></li>
-                    <li><a title="Năm 2018" href="#">Năm 2018</a></li>
+                    @foreach ($years as $year)
+                        <li><a title="Phim 2020" href="#">Phim {{ $year }}</a></li>
+                    @endforeach
                 </ul>
             </li>
             <li class="mega dropdown">
                 <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
                     disabled>Thể Loại <span class="caret"></span></a>
                 <ul role="menu" class=" dropdown-menu">
-                    <li><a title="Tâm Lý" href="#">Tâm Lý</a></li>
-                    <li><a title="Hành động" href="#">Hành động</a></li>
-                    <li><a title="Viễn Tưởng" href="#">Viễn Tưởng</a></li>
-                    <li><a title="Hoạt Hình" href="#">Hoạt Hình</a></li>
-                    <li><a title="Thể Thao - Âm Nhạc" href="#">Thể Thao &#8211; Âm Nhạc</a>
-                    </li>
+                    @foreach ($genreses as $gen)
+                        <li><a title="{{ $gen->title }}" href="#">{{ $gen->title }}</a></li>
+                    @endforeach
                 </ul>
             </li>
             <li class="mega dropdown">
                 <a title="Quốc Gia" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
                     disabled>Quốc Gia <span class="caret"></span></a>
                 <ul role="menu" class=" dropdown-menu">
-                    <li><a title="Việt nam" href="#">Việt nam</a></li>
-                    <li><a title="Ấn Độ" href="#">Ấn Độ</a></li>
-                    <li><a title="Mỹ" href="#">Mỹ</a></li>
+                    @foreach ($countries as $country)
+                        <li><a title="{{ $country }}" href="#">{{ $country }}</a></li>
+                    @endforeach
                 </ul>
             </li>
-            <li><a title="Phim Lẻ" href="#">Phim Lẻ</a></li>
-            <li><a title="Phim Bộ" href="#">Phim Bộ</a></li>
-            <li><a title="Phim Chiếu Rạp" href="#">Phim Chiếu Rạp</a></li>
+            @foreach ($categories as $category)
+                <li><a title="Phim Lẻ" href="#">{{ $category->name }}</a></li>
+            @endforeach
         </ul>
     </div>
     <ul class="nav navbar-nav navbar-left" style="background:#000;">

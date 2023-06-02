@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CategoryModel;
 use App\Models\LikeModel;
 use App\Models\MovieModel;
+use App\Models\GenresModel;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -67,6 +68,7 @@ class ModuleController extends Controller
         return $category;
     }
 
+    //lay tat ca danh muc va phim cua danh muc
     static function getAllCategory()
     {
         $categories = CategoryModel::all();
@@ -74,6 +76,37 @@ class ModuleController extends Controller
             $category->movies = $category->movies();
         }
         return $categories;
+    }
+
+    //get all year 
+    static function getYears(){
+        $years = MovieModel::get('publish_year');
+        $arr = [];
+        foreach ($years as $value) {
+            if(!in_array($value->publish_year,$arr)){
+                array_push($arr , $value->publish_year);
+            }
+        }
+        return $arr; 
+    }
+
+    //get all genreses
+    static function getGenreses(){
+        $genreses = GenresModel::all(); 
+        return $genreses;
+    }
+
+    //get all country
+    static function getCountries()
+    {
+        $countries = MovieModel::get('country');
+        $arr = [];
+        foreach ($countries as $value) {
+            if(!in_array($value->country,$arr)){
+                array_push($arr , $value->country);
+            }
+        }
+        return $arr; 
     }
 
     //check login

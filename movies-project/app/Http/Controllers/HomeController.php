@@ -10,8 +10,21 @@ class HomeController extends Controller
     {
         //demo
         $categories = ModuleController::getAllCategory();
+
+        //get years
+        $years = ModuleController::getYears();
+
+        //get genreses
+        $genreses = ModuleController::getGenreses();
+
+        //get countries
+        $countries = ModuleController::getCountries();
+
         return view('home', [
-            'categories' => $categories
+            'categories' => $categories,
+            'years' => $years,
+            'genreses' => $genreses,
+            'countries' => $countries
         ]);
     }
 }
