@@ -11,7 +11,7 @@
             </div>
             <div class="movie_info col-xs-12">
                 <div class="movie-poster col-md-3">
-                    <img class="movie-thumb" src="{{ asset(`storage/app/photos/$movie->image`) }}"
+                    <img class="movie-thumb" src="{{ url( 'images/' . $movie->image) }}"
                         alt="{{ $movie->name }}">
                     <div class="bwa-content">
                         <div class="loader"></div>
@@ -51,7 +51,7 @@
                             <a href="" rel="nofollow" title="{{ $movie->actor }}">{{ $movie->actor }}</a>
                         </li>
                         @if (Session::get('user'))
-                            <a id="report" class="halim-switch"><i id="like" style="font-size: 1.5em" class="bi bi-hand-thumbs-up"></i>
+                            <a id="report" class="halim-switch" style="cursor: pointer"><i id="like" style="font-size: 1.5em" class="bi bi-hand-thumbs-up"></i>
                                 Like
                             </a>
                         @endIf
