@@ -2,7 +2,7 @@
 <html lang="vi">
 
 <head>
-    @include('assets.link_css');
+    @include('assets.link_css')
 </head>
 
 <body class="archive tax-release term-32429 halimthemes halimmovies" data-masonry="">
