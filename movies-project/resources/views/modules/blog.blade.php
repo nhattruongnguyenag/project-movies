@@ -15,4 +15,4 @@
         {!! $blog->content !!}
     </p>
 </div>
-F
+

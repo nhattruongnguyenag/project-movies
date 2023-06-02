@@ -54,7 +54,7 @@
             container.innerHTML +=
                 `
          <div class="item post-37176">
-                   <a href="#" title="${result[index]['name']}">
+                   <a href="http://127.0.0.1:8000/detail?id=${result[index]['movie_id']}" title="${result[index]['name']}">
                       <div class="item-link">
                          <img src="http://127.0.0.1:8000/images/${result[index]['image']}" class="lazy post-thumb" alt="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" />
                          <span class="is_trailer">Trailer</span>
@@ -84,7 +84,7 @@
             container.innerHTML +=
                 `
            <div class="item post-37176">
-                     <a href="#" title="${result[index]['name']}">
+                     <a href="http://127.0.0.1:8000/detail?id=${result[index]['movie_id']}" title="${result[index]['name']}">
                         <div class="item-link">
                            <img src="http://127.0.0.1:8000/images/${result[index]['image']}"class="lazy post-thumb" alt="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" />
                            <span class="is_trailer">Trailer</span>
@@ -100,6 +100,7 @@
                   </div>
            `;
         }
+        console.log(result);
     }
 
 
@@ -114,7 +115,7 @@
             container.innerHTML +=
                 `
            <div class="item post-37176">
-                     <a href="#" title="${result[index]['name']}">
+                     <a href="http://127.0.0.1:8000/detail?id=${result[index]['movie_id']}" title="${result[index]['name']}">
                         <div class="item-link">
                            <img src="http://127.0.0.1:8000/images/${result[index]['image']}" class="lazy post-thumb" alt="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" />
                            <span class="is_trailer">Trailer</span>
@@ -143,7 +144,7 @@
             container.innerHTML +=
                 `
            <div class="item post-37176">
-                     <a href="#" title="${result[index]['name']}">
+                     <a href="http://127.0.0.1:8000/detail?id=${result[index]['movie_id']}" title="${result[index]['name']}">
                         <div class="item-link">
                            <img src="http://127.0.0.1:8000/images/${result[index]['image']}" class="lazy post-thumb" alt="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ" />
                            <span class="is_trailer">Trailer</span>

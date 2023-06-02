@@ -16,7 +16,7 @@
         </select>
         <select class="form-select" aria-label="Default select example" name="country">
             <option selected value="0">-- Quốc gia --</option>
-            @foreach ($countries as $item)
+            @foreach ($countries1 as $item)
                 @if (isset($oldInput))
                     @if ($oldInput->country == $item->country)
                         <option selected value="{{ $item->country }}">{{ $item->country }}</option>

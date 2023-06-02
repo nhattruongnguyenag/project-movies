@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row" id="headwrap">
             <div class="col-md-3 col-sm-6 slogan">
-                <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</p>
-                </a>
+                <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</a></p>
             </div>
             <div class="col-md-4 col-sm-6 halim-search-form hidden-xs">
+                <a href="{{ route('home') }}"><i class="bi bi-house-fill" style="font-size: 1.7em"></i></a>
                 <div class="header-nav">
                     <div class="col-xs-12">
 

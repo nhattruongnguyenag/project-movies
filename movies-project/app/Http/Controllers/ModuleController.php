@@ -80,20 +80,22 @@ class ModuleController extends Controller
     }
 
     //get all year 
-    static function getYears(){
+    static function getYears()
+    {
         $years = MovieModel::get('publish_year');
         $arr = [];
         foreach ($years as $value) {
-            if(!in_array($value->publish_year,$arr)){
-                array_push($arr , $value->publish_year);
+            if (!in_array($value->publish_year, $arr)) {
+                array_push($arr, $value->publish_year);
             }
         }
-        return $arr; 
+        return $arr;
     }
 
     //get all genreses
-    static function getGenreses(){
-        $genreses = GenresModel::all(); 
+    static function getGenreses()
+    {
+        $genreses = GenresModel::all();
         return $genreses;
     }
 
@@ -103,11 +105,11 @@ class ModuleController extends Controller
         $countries = MovieModel::get('country');
         $arr = [];
         foreach ($countries as $value) {
-            if(!in_array($value->country,$arr)){
-                array_push($arr , $value->country);
+            if (!in_array($value->country, $arr)) {
+                array_push($arr, $value->country);
             }
         }
-        return $arr; 
+        return $arr;
     }
 
     //check login
@@ -158,14 +160,17 @@ class ModuleController extends Controller
             }
         }
     }
-    
+
     //-------------------Blog area-------------------------//
     //Chu Dinh Hanh
     //Create Blog
     public function createBlog(Request $request)
     {
         $result = BlogModel::createBlog($request);
-        return $result;
+        if ($result != null) {
+            session()->flash('success', 'Thông báo thành công!');
+            return redirect()->route('watchBlog');
+        }
     }
 
     //Delete Blog
@@ -181,8 +186,32 @@ class ModuleController extends Controller
     //Edit blog
     public function editBlog(Request $request)
     {
+        //get categories
+        $categories = self::getAllCategory();
+
+        //get years
+        $years = self::getYears();
+
+        //get genreses
+        $genreses = self::getGenreses();
+
+        //get countries
+        $countries = self::getCountries();
+
+        $notify = self::goNotify();
+
         $result = BlogModel::editBlog($request);
-        return view('areaCreateBlog', ['blog' => $result]);
+        return view(
+            'areaCreateBlog',
+            [
+                'blog' => $result,
+                'categories' => $categories,
+                'years' => $years,
+                'genreses' => $genreses,
+                'countries' => $countries,
+                'notify' => $notify
+            ]
+        );
     }
     //----------------------------Movie area-------------------//
     //Lay top view nhieu nhat tu truoc den nay!
@@ -264,5 +293,4 @@ class ModuleController extends Controller
         $result = UserModel::getUser();
         return $result;
     }
->>>>>>> hanh-function(37-49)
 }

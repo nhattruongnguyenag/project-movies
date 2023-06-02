@@ -22,9 +22,6 @@ class DetailController extends Controller
 
         //get related movies by id
         $relatedMovie = ModuleController::getRelatedMovieById($id);
-        if ($relatedMovie == null) {
-            return view('404');
-        }
         foreach ($relatedMovie as $movie) {
             $movie->type = count($movie->episodes()) != 0 ? $movie->episodes()->first()->type : "none";
         }
