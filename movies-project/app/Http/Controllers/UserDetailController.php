@@ -20,11 +20,17 @@ class UserDetailController extends Controller
         //get countries
         $countries = ModuleController::getCountries();
 
+        $notify = ModuleController::goNotify();
+        $result = ModuleController::getUser();
+        
         return view('user', [
             'categories' => $categories,
             'years' => $years,
             'genreses' => $genreses,
-            'countries' => $countries
+            'countries' => $countries,
+            'user' => $result['user'], 'countMovie' => $result['countMovie'],
+            'countLike' => $result['countLike'], 'arr' => $result['arr'],
+            'notify' => $notify
         ]);
     }
 }

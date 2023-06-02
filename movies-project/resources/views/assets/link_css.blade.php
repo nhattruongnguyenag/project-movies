@@ -5,6 +5,7 @@
 <meta content="VN" name="geo.region" />
 <meta name="DC.language" scheme="utf-8" content="vi" />
 <meta name="language" content="Việt Nam">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <link rel="stylesheet" href="css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link rel="shortcut icon"
@@ -40,8 +41,11 @@
         width: 100%;
     }
 
-    /* ---------------------START CSS CHU DINH HANH------------------- */
-    * {}
+     /* ---------------------START CSS CHU DINH HANH------------------- */
+     .search_wrapper_area {
+        width: 350px !important;
+    }
+
 
     ul {
         justify-content: left;
@@ -167,9 +171,80 @@
         border-radius: 15px;
     }
 
+    /* Scroll bar */
+    .scrollbar {
+        background-color: #F5F5F5;
+        height: 430px;
+        margin-bottom: 25px;
+        margin-left: 4px;
+        margin-top: 40px;
+        overflow-y: scroll;
+    }
 
+    .force-overflow {
+        min-height: 1280px;
+    }
+
+    /* movies search value hover */
+    .image_search_result {
+        transition: 0.5s all;
+    }
+
+    .movie_movies_item:hover .image_search_result {
+        scale: 1.2;
+    }
+
+    .name_movie_searh_result:hover h2 {
+        color: yellow !important;
+    }
+
+    /* search paragraph */
+    .wrapper_content_area {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Blog item */
+    .footer_blog_item_wraper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .title_blog_wrapper {
+        text-align: center;
+        color: white;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Loc phim */
+
+    select {
+        width: 230px;
+        height: 30px;
+    }
+
+    .btn_film_filter {
+        font-family: sans-serif;
+        background: blue;
+        color: white;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        width: 100px;
+        height: 30px;
+    }
 
     /* ---------------------END CSS CHU DINH HANH------------------- */
+
+
+    
 </style>
 <style>
     #header .site-title {

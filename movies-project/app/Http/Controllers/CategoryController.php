@@ -9,6 +9,7 @@ class CategoryController extends Controller
     function init(Request $request)
     {
         $id = $request->id;
+        $notify = ModuleController::goNotify();
         
         //get categories
         $categories = ModuleController::getAllCategory();
@@ -28,7 +29,8 @@ class CategoryController extends Controller
             'categories' => $categories,
             'years' => $years,
             'genreses' => $genreses,
-            'countries' => $countries
+            'countries' => $countries,
+            'notify' => $notify
         ]);
     }
 }

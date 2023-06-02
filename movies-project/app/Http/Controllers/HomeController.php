@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         //get categories
         $categories = ModuleController::getAllCategory();
-
+        $notify = ModuleController::goNotify();
         //get years
         $years = ModuleController::getYears();
 
@@ -24,7 +24,9 @@ class HomeController extends Controller
             'categories' => $categories,
             'years' => $years,
             'genreses' => $genreses,
-            'countries' => $countries
+            'countries' => $countries,
+            'categories' => $categories,
+            'notify' => $notify
         ]);
     }
 }

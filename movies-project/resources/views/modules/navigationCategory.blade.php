@@ -34,11 +34,10 @@
             @foreach ($categories as $category)
                 <li><a title="Phim Lẻ" href="#">{{ $category->name }}</a></li>
             @endforeach
+            <li class="mega"><a title="Phim Mới" href="{{ route('watchBlog') }}">Blog</a></li>
+            <li><a href="{{ route('filmFilter') }}" title="Phim Chiếu Rạp" href="#">Lọc Phim</a></li>
         </ul>
     </div>
-    <ul class="nav navbar-nav navbar-left" style="background:#000;">
-        <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>
-    </ul>
     <ul class="nav navbar-nav navbar-left" style="background:#000;">
         @if (Session::get('user'))
             <li class="disabled"><a href="#" style="color: #ffed4d;">{{ Session::get('user')->username }}</a></li>

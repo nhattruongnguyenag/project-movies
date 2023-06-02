@@ -21,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\IOFileController' => $baseDir . '/app/Http/Controllers/IOFileController.php',
     'App\\Http\\Controllers\\ModuleController' => $baseDir . '/app/Http/Controllers/ModuleController.php',
     'App\\Http\\Controllers\\UserDetailController' => $baseDir . '/app/Http/Controllers/UserDetailController.php',
+    'App\\Http\\Controllers\\UserProccessController' => $baseDir . '/app/Http/Controllers/UserProccessController.php',
     'App\\Http\\Controllers\\WatchMovieController' => $baseDir . '/app/Http/Controllers/WatchMovieController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

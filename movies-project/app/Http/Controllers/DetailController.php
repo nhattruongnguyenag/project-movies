@@ -11,7 +11,7 @@ class DetailController extends Controller
     function init(Request $request)
     {
         $id = $request->query('id');
-
+        $notify = ModuleController::goNotify();
         //get movie by id
         $movie = ModuleController::getMovieDetailById($id);
         if ($movie == null) {
@@ -25,7 +25,7 @@ class DetailController extends Controller
         if ($relatedMovie == null) {
             return view('404');
         }
-        foreach ($relatedMovie as $movie){
+        foreach ($relatedMovie as $movie) {
             $movie->type = count($movie->episodes()) != 0 ? $movie->episodes()->first()->type : "none";
         }
         
@@ -41,6 +41,7 @@ class DetailController extends Controller
         //get countries
         $countries = ModuleController::getCountries();
 
+
         return view('detail', [
             'movie' => $movieResource,
             'type' => $type,
@@ -48,7 +49,8 @@ class DetailController extends Controller
             'categories' => $categories,
             'years' => $years,
             'genreses' => $genreses,
-            'countries' => $countries
+            'countries' => $countries,
+            'notify' => $notify
         ]);
     }
 }
